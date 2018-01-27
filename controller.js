@@ -13,9 +13,9 @@ function Pencil(ctx, drawing, canvas) {
 
 	//Implémentez ici les 3 fonctions onInteractionStart, onInteractionUpdate et onInteractionEnd
 
-    interactor.onInteractionStart(this);
-    interactor.onInteractionUpdate(this);
-    interactor.onInteractionEnd(this);
+    //interactor.onInteractionStart(this);
+    //interactor.onInteractionUpdate(this);
+    //interactor.onInteractionEnd(this);
 
 };
 
