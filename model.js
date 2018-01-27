@@ -38,7 +38,7 @@ function Line(x1, x2, y1, y2, epaisseur, couleur){
         this.getFinalY=function(){return y2}
 
 }
-function Form( epaisseur,couleur){
+function Form(epaisseur,couleur){
 
           this.epaisseur=epaisseur;
           this.couleur=couleur;
