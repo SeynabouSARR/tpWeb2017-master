@@ -9,7 +9,7 @@ function DnD(canvas, interactor) {
 	var yfin=0;
 
 	// Developper les 3 fonctions gérant les événements
-    this.pression=function(evt){
+   this.pression=function(evt){
         console.log(evt.x+','+evt.y);
     }.bind(this);
 
