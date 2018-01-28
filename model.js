@@ -2,7 +2,9 @@
 // Implémenter ici les 4 classes du modèle.
 // N'oubliez pas l'héritage !
 function Drawing(){
-   var listForm = [];
+   this.listForm = [];
+   this.getForms=function () {return this.listForm}.bind(this);
+   this.addForm=function(form){this.listForm.push(form);}.bind(this);
 
 
 }
@@ -15,10 +17,10 @@ function Rectangle(haut_gaucheX, haut_gaucheY,largeur, hauteur,epaisseur,couleur
         this.largeur=largeur;
         this.hauteur=hauteur;
 
-        this.getInitX=function(){return haut_gaucheX}
-        this.getFinalX=function(){return haut_gaucheY }
-        this.getInitY=function(){return largeur}
-        this.getFinalY=function () {return hauteur}
+        this.getInitX=function(){return haut_gaucheX}.bind(this);
+        this.getFinalX=function(){return haut_gaucheY }.bind(this);
+        this.getInitY=function(){return largeur}.bind(this);
+        this.getFinalY=function () {return hauteur}.bind(this);
 
 
 
@@ -32,12 +34,17 @@ function Line(x1, x2, y1, y2, epaisseur, couleur){
         this.y1=y1;
         this.y2=y2;
 
-        this.getInitX=function(){return x1}
-        this.getFinalX=function(){return x2}
-        this.getInitY=function(){return y1}
-        this.getFinalY=function(){return y2}
+        this.getInitX=function(){return this.x1}.bind(this);
+        this.getFinalX=function(){return this.x2}.bind(this);
+        this.getInitY=function(){return this.y1}.bind(this);
+        this.getFinalY=function(){return this.y2}.bind(this);
+
+        this.toString=function () {
+            alert("("+this.getInitX+','+this.getInitY+")/("+this.getFinalX+","+this.getFinalY()+")");
+        }
 
 }
+
 function Form(epaisseur,couleur){
 
           this.epaisseur=epaisseur;

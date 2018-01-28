@@ -25,6 +25,10 @@ function DnD(canvas, interactor) {
 	canvas.addEventListener('mousemove',this.deplacement,false);
 	canvas.addEventListener('mouseup', this.relachement,false);
 
+    interactor.onInteractionStart(this);
+    //interactor.onInteractionUpdate(this);
+   // interactor.onInteractionEnd(this);
+
 };
 
 
