@@ -13,18 +13,16 @@ function Pencil(ctx, drawing, canvas) {
 
 	//Implémentez ici les 3 fonctions onInteractionStart, onInteractionUpdate et onInteractionEnd
 
-<<<<<<< HEAD
 
     this.onInteractionStart= function(dnd){}.bind(this);
     this.onInteractionUpdate=function (dnd) {}.bind(this);
 	this.onInteractionEnd= function (dnd) {}.bind(this);
 
 
-=======
     //interactor.onInteractionStart(this);
     //interactor.onInteractionUpdate(this);
     //interactor.onInteractionEnd(this);
->>>>>>> 8b65297804d799589e0a5943e56c4594baeb9625
+
 
 };
 
