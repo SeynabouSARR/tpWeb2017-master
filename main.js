@@ -13,9 +13,9 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);  // now fill the canvas
 
  //Code temporaire pour tester l'affiche de la vue
 var rec = new Rectangle(0, 300, 200, 25, 5, '#00CCC0');
-rec.paint(ctx);
+//rec.paint(ctx);
 var ligne = new Rectangle(60, 60, 1, 75, 3, '#FF0000');
-ligne.paint(ctx);
+//ligne.paint(ctx);
  //tester également Dessin.
 
 // Code final à utiliser pour manipuler Pencil.
@@ -24,6 +24,9 @@ drawing.addForm(rec);
 drawing.addForm(ligne);
 var pencil = new Pencil(ctx, drawing, canvas);
 //drawing.paint(ctx, canvas);
+
+ctx.rect(10,150,20,20);
+ctx.stroke();
 
 
 

@@ -15,12 +15,12 @@ function Pencil(ctx, drawing, canvas) {
 	//Implémentez ici les 3 fonctions onInteractionStart, onInteractionUpdate et onInteractionEnd
 
     this.onInteractionStart= function(dnd){
-    	console.log("Start");
+    	//console.log("Start");
 	}.bind(this);
 
 
     this.onInteractionUpdate=function (dnd) {
-        console.log("Update");
+        //console.log("Update");
 	}.bind(this);
 
 
@@ -32,11 +32,12 @@ function Pencil(ctx, drawing, canvas) {
 	    else if (this.currEditingMode==editingMode.rect) {
 	        var largeur= Math.abs(dnd.getInitX()-dnd.getFinalX());
 	        var hauteur=Math.abs(dnd.getInitY()-dnd.getFinalY());
-			var rectangle=new Rectangle(dnd.getInitX(),largeur,dnd.getInitY(),hauteur,this.currLineWidth,this.currColour);
+			var rectangle=new Rectangle(dnd.getInitX(),dnd.getInitY(),largeur,hauteur,this.currLineWidth,this.currColour);
+			console.log(rectangle);
 			rectangle.paint(ctx);
 		}
 
-        console.log("End");
+        //console.log("End");
 	}.bind(this);
 
 

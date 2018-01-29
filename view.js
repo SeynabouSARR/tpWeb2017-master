@@ -12,7 +12,6 @@ Line.prototype.paint = function(ctx) {
     ctx.moveTo(this.getInitX(), this.getInitY());
     ctx.lineTo(this.getFinalX(), this.getFinalY());
     ctx.stroke();
-
 };
 
 Drawing.prototype.paint = function(ctx,canvas) {
