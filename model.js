@@ -35,7 +35,8 @@ function Line(x1, x2, y1, y2, epaisseur, couleur){
         this.getFinalY=function(){return this.y2}.bind(this);
 
         this.toString=function () {
-            alert("("+this.getInitX+','+this.getInitY+")/("+this.getFinalX+","+this.getFinalY()+")");
+            console.log(this);
+            //console.log("("+this.getInitX+','+this.getInitY+")/("+this.getFinalX+","+this.getFinalY()+")");
         }
 }
 

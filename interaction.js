@@ -17,11 +17,16 @@ function DnD(canvas, interactor) {
     this.getInitY=function(){return this.yDebut}.bind(this);
     this.getFinalY=function () {return this.yFin}.bind(this);
 
+    this.setInitX=function(x){ this.xDebut =x; }.bind(this);
+    this.setFinalX=function(x){ this.xFin = x ;}.bind(this);
+    this.setInitY=function(y){this.yDebut = y; }.bind(this);
+    this.setFinalY=function (y) { this.yFin = y; }.bind(this);
 
-	// Developper les 3 fonctions gérant les événements
+
+    // Developper les 3 fonctions gérant les événements
     this.pression=function(evt){
-        xdebut = getMousePosition(canvas,evt).x;
-        ydebut = getMousePosition(canvas,evt).y;
+        this.setInitX(getMousePosition(canvas,evt).x);
+        this.setInitY(getMousePosition(canvas,evt).y);
         this.interactor.onInteractionStart(this);
     }.bind(this);
 
@@ -33,7 +38,8 @@ function DnD(canvas, interactor) {
 
 
     this.relachement=function(evt){
-        console.log('----------------------------------------------'+evt.x+','+evt.y);
+        this.setFinalX(getMousePosition(canvas,evt).x);
+        this.setFinalY(getMousePosition(canvas,evt).y);
         this.interactor.onInteractionEnd(this);
         this.interactor.onInteractionUpdate(this);
     }.bind(this);
