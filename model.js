@@ -21,9 +21,6 @@ function Rectangle(haut_gaucheX, haut_gaucheY,largeur, hauteur,epaisseur,couleur
         this.getFinalX=function(){return haut_gaucheY }.bind(this);
         this.getInitY=function(){return largeur}.bind(this);
         this.getFinalY=function () {return hauteur}.bind(this);
-
-
-
 }
 
 function Line(x1, x2, y1, y2, epaisseur, couleur){
@@ -42,7 +39,6 @@ function Line(x1, x2, y1, y2, epaisseur, couleur){
         this.toString=function () {
             alert("("+this.getInitX+','+this.getInitY+")/("+this.getFinalX+","+this.getFinalY()+")");
         }
-
 }
 
 function Form(epaisseur,couleur){

@@ -21,7 +21,6 @@ function Pencil(ctx, drawing, canvas) {
    // this.onInteractionEnd= function (dnd) {}.bind(this);
 
 
-
     this.onInteractionStart= function(dnd){}.bind(this);
     this.onInteractionUpdate=function (dnd) {}.bind(this);
 	this.onInteractionEnd= function (dnd) {}.bind(this);
