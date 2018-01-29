@@ -11,7 +11,6 @@ function DnD(canvas, interactor) {
 	this.canvas = canvas;
 	this.interactor = interactor;
 
-
     this.getInitX=function(){return this.xDebut}.bind(this);
     this.getFinalX=function(){return this.xFin }.bind(this);
     this.getInitY=function(){return this.yDebut}.bind(this);
@@ -22,7 +21,6 @@ function DnD(canvas, interactor) {
     this.setInitY=function(y){this.yDebut = y; }.bind(this);
     this.setFinalY=function (y) { this.yFin = y; }.bind(this);
 
-
     // Developper les 3 fonctions gérant les événements
     this.pression=function(evt){
         this.setInitX(getMousePosition(canvas,evt).x);
@@ -30,12 +28,9 @@ function DnD(canvas, interactor) {
         this.interactor.onInteractionStart(this);
     }.bind(this);
 
-
-
     this.deplacement=function(evt){
         //console.log("je déplace la souris");
     }.bind(this);
-
 
     this.relachement=function(evt){
         this.setFinalX(getMousePosition(canvas,evt).x);
@@ -43,7 +38,6 @@ function DnD(canvas, interactor) {
         this.interactor.onInteractionEnd(this);
         this.interactor.onInteractionUpdate(this);
     }.bind(this);
-
 
 	// Associer les fonctions précédentes aux évènements du canvas.
 	this.canvas.addEventListener('mousedown',this.pression,false);

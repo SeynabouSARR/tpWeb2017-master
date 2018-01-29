@@ -17,13 +17,9 @@ function Pencil(ctx, drawing, canvas) {
     this.onInteractionStart= function(dnd){
     	//console.log("Start");
 	}.bind(this);
-
-
     this.onInteractionUpdate=function (dnd) {
         //console.log("Update");
 	}.bind(this);
-
-
 	this.onInteractionEnd= function (dnd) {
 	    if(this.currEditingMode==editingMode.line){
 	   		 var line=new Line(dnd.getInitX(),dnd.getFinalX(),dnd.getInitY(),dnd.getFinalY(),this.currLineWidth,this.currColour);
