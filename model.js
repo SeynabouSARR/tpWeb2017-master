@@ -50,4 +50,6 @@ function Form(epaisseur,couleur){
           this.epaisseur=epaisseur;
           this.couleur=couleur;
 
+
+
 }
