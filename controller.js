@@ -14,19 +14,6 @@ function Pencil(ctx, drawing, canvas) {
 
 	//Implémentez ici les 3 fonctions onInteractionStart, onInteractionUpdate et onInteractionEnd
 
-
-
-   // this.onInteractionStart= function(dnd){}.bind(this);
-   // this.onInteractionUpdate=function (dnd) {}.bind(this);
-   // this.onInteractionEnd= function (dnd) {}.bind(this);
-
-
-
-    this.onInteractionStart= function(dnd){}.bind(this);
-    this.onInteractionUpdate=function (dnd) {}.bind(this);
-	this.onInteractionEnd= function (dnd) {}.bind(this);
-
-
     this.onInteractionStart= function(dnd){
     	console.log("Start");
 	}.bind(this);
@@ -41,11 +28,6 @@ function Pencil(ctx, drawing, canvas) {
         console.log("End");
 	}.bind(this);
 
-
-
-    //interactor.onInteractionStart(this);
-    //interactor.onInteractionUpdate(this);
-    //interactor.onInteractionEnd(this);
 
 
 };
