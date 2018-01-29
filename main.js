@@ -22,6 +22,8 @@ var ligne = new Rectangle(15, 25, 75, 150, 3, '#FF0000');
 var drawing = new Drawing();
 drawing.addForm(rec);
 drawing.addForm(ligne);
-//var pencil = new Pencil(ctx, drawing, canvas);
+var pencil = new Pencil(ctx, drawing, canvas);
 drawing.paint(ctx, canvas);
+
+
 

@@ -10,7 +10,7 @@ function Pencil(ctx, drawing, canvas) {
 
 	// Liez ici les widgets à la classe pour modifier les attributs présents ci-dessus.
 
-	new DnD(canvas, this);
+	this.dnd = new DnD(canvas, this);
 
 	//Implémentez ici les 3 fonctions onInteractionStart, onInteractionUpdate et onInteractionEnd
 
@@ -21,9 +21,26 @@ function Pencil(ctx, drawing, canvas) {
    // this.onInteractionEnd= function (dnd) {}.bind(this);
 
 
+
     this.onInteractionStart= function(dnd){}.bind(this);
     this.onInteractionUpdate=function (dnd) {}.bind(this);
 	this.onInteractionEnd= function (dnd) {}.bind(this);
+
+
+    this.onInteractionStart= function(dnd){
+    	console.log("Start");
+	}.bind(this);
+
+
+    this.onInteractionUpdate=function (dnd) {
+        console.log("Update");
+	}.bind(this);
+
+
+	this.onInteractionEnd= function (dnd) {
+        console.log("End");
+	}.bind(this);
+>>>>>>> 188dce59da9a473775dbefc166d2c87bae17ff09
 
 
     //interactor.onInteractionStart(this);

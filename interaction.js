@@ -3,23 +3,27 @@
 // L'interacteur viendra dans un second temps donc ne vous en souciez pas au départ.
 function DnD(canvas, interactor) {
 	// Définir ici les attributs de la 'classe'
-	var xdebut=0;
-	var xfin=0;
-	var ydebut=0;
-	var yfin=0;
+	this.xDebut=0;
+	this.xFin=0;
+	this.yDebut=0;
+	this.yFin=0;
+	this.i=0;
+	this.canvas = canvas;
+	this.interactor = interactor;
+
+
+
 
 	// Developper les 3 fonctions gérant les événements
     this.pression=function(evt){
-       // console.log(evt.x+','+evt.y+"---"+getMousePosition(canvas,evt).x);
         xdebut = getMousePosition(canvas,evt).x;
         ydebut = getMousePosition(canvas,evt).y;
-
     }.bind(this);
 
 
 
     this.deplacement=function(evt){
-    console.log("je déplace la souris");
+        console.log("je déplace la souris");
     }.bind(this);
 
 
@@ -27,14 +31,18 @@ function DnD(canvas, interactor) {
         console.log("yes");
     }.bind(this);
 
+
     this.relachement=function(evt){
-    console.log(evt.x+','+evt.y);
-    }.bind(this)
+        console.log('----------------------------------------------'+evt.x+','+evt.y);
+        console.log(this.interactor+"/"+this.i);this.i++;
+       // interactor.onInteractionEnd(this);
+    }.bind(this);
+
+
 	// Associer les fonctions précédentes aux évènements du canvas.
-	canvas.addEventListener('mousedown',this.pression,false);
-    canvas.addEventListener('mousemove',this.deplacement,false);
-    canvas.addEventListener('drag',this.ok,false);
-    canvas.addEventListener('mouseup', this.relachement,false);
+	this.canvas.addEventListener('mousedown',this.pression,false);
+    this.canvas.addEventListener('mousemove',this.deplacement,false);
+    this.canvas.addEventListener('mouseup', this.relachement,false);
 
 
     //interactor.onInteractionStart(this);
