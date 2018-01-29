@@ -25,7 +25,6 @@ Drawing.prototype.paint = function(ctx,canvas) {
     });
 };
 
-
 Form.prototype.paint = function (ctx) {
     this.couleur="";
     this.epaisseur = 0;
