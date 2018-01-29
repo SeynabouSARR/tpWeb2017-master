@@ -5,7 +5,6 @@ function Drawing(){
    this.listForm = [];
    this.getForms=function () {return this.listForm}.bind(this);
    this.addForm=function(form){this.listForm.push(form);}.bind(this);
-
 }
 
 function Rectangle(haut_gaucheX, haut_gaucheY,largeur, hauteur,epaisseur,couleur){
