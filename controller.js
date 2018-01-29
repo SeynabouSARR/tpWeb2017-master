@@ -22,6 +22,10 @@ function Pencil(ctx, drawing, canvas) {
 
 
 
+    this.onInteractionStart= function(dnd){}.bind(this);
+    this.onInteractionUpdate=function (dnd) {}.bind(this);
+	this.onInteractionEnd= function (dnd) {}.bind(this);
+
 
     //interactor.onInteractionStart(this);
     //interactor.onInteractionUpdate(this);
