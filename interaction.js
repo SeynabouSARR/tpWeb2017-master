@@ -28,7 +28,6 @@ function DnD(canvas, interactor) {
 
     this.relachement=function(evt){
         console.log('----------------------------------------------'+evt.x+','+evt.y);
-        console.log(this.interactor+"/"+this.i);this.i++;
         this.interactor.onInteractionEnd(this);
         this.interactor.onInteractionUpdate(this);
     }.bind(this);
