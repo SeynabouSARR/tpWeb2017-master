@@ -4,11 +4,20 @@ var editingMode = { rect: 0, line: 1 };
 function Pencil(ctx, drawing, canvas) {
 	this.currEditingMode = editingMode.rect;
 	this.currLineWidth = 5;
-	this.currColour = '#320f1f';
-	this.currentShape = 0;
+    this.currColour = '#320f1f';
+    this.currentShape = 0;
 
 
-	// Liez ici les widgets à la classe pour modifier les attributs présents ci-dessus.
+    this.setCurrEditingMode=function(x){ this.currEditingMode =x; }.bind(this);
+    this.setCurrLineWidth=function(x){ this.currLineWidth = x ;}.bind(this);
+    this.setCurrColour=function(x){
+    }.bind(this);
+    
+    this.setCurrentShape=function (x) { this.currentShape = x; }.bind(this);
+
+
+
+    // Liez ici les widgets à la classe pour modifier les attributs présents ci-dessus.
 
 	this.dnd = new DnD(canvas, this);
 

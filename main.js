@@ -2,6 +2,13 @@
 var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext('2d');
 
+var boutonRect = document.getElementById('butRect');
+var boutonLine = document.getElementById('butLine');
+var spinnerWidth = document.getElementById('spinnerWidth');
+var colour = document.getElementById('colour');
+
+
+
 canvas.width=800
 canvas.height=600
 
@@ -27,6 +34,28 @@ var pencil = new Pencil(ctx, drawing, canvas);
 
 ctx.rect(10,150,20,20);
 ctx.stroke();
+
+
+
+
+
+boutonRect.addEventListener('click',function () {
+    pencil.setCurrEditingMode(editingMode.rect);
+});
+
+boutonLine.addEventListener('click',function () {
+    pencil.setCurrEditingMode(editingMode.line);
+});
+
+
+spinnerWidth.addEventListener('change',function () {
+    //pencil.setCurrLineWidth(this.val())
+    //alert(this.value);
+    pencil.setCurrLineWidth(this.value);
+    console.log(pencil);
+});
+
+
 
 
 
