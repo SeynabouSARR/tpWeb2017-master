@@ -23,7 +23,7 @@ function DnD(canvas, interactor) {
 
 
     this.deplacement=function(evt){
-        console.log("je déplace la souris");
+        //console.log("je déplace la souris");
     }.bind(this);
 
 
@@ -35,7 +35,7 @@ function DnD(canvas, interactor) {
     this.relachement=function(evt){
         console.log('----------------------------------------------'+evt.x+','+evt.y);
         console.log(this.interactor+"/"+this.i);this.i++;
-       // interactor.onInteractionEnd(this);
+        interactor.onInteractionEnd(this);
     }.bind(this);
 
 
