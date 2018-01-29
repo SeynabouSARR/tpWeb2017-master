@@ -30,8 +30,8 @@ function Pencil(ctx, drawing, canvas) {
 	   		 line.paint(ctx);
 	    }
 	    else if (this.currEditingMode==editingMode.rect) {
-	        var largeur= Math.abs(dnd.getInitX()-dnd.getFinalX());
-	        var hauteur=Math.abs(dnd.getInitY()-dnd.getFinalY());
+	        var largeur= dnd.getFinalX()-dnd.getInitX();
+	        var hauteur=dnd.getFinalY()-dnd.getInitY();
 			var rectangle=new Rectangle(dnd.getInitX(),dnd.getInitY(),largeur,hauteur,this.currLineWidth,this.currColour);
 			console.log(rectangle);
 			rectangle.paint(ctx);

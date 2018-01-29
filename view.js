@@ -2,7 +2,7 @@
 // Implémenter ici les fonctions paint à ajouter dans chacune des classes du modèle.
 
 Rectangle.prototype.paint = function(ctx) {
-    ctx.rect(this.getX(),this.getLargeur(), this.getY(),this.getHauteur());
+    ctx.rect(this.getX(), this.getY(),this.getLargeur(),this.getHauteur());
     ctx.stroke();
 };
 
