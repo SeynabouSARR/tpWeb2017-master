@@ -18,7 +18,6 @@ var ligne = new Rectangle(15, 25, 75, 150, 3, '#FF0000');
 //ligne.paint(ctx);
  //tester également Dessin.
 
-
 // Code final à utiliser pour manipuler Pencil.
 var drawing = new Drawing();
 drawing.addForm(rec);

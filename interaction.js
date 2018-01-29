@@ -18,6 +18,7 @@ function DnD(canvas, interactor) {
     this.pression=function(evt){
         xdebut = getMousePosition(canvas,evt).x;
         ydebut = getMousePosition(canvas,evt).y;
+        interactor.onInteractionStart(this);
     }.bind(this);
 
 
@@ -45,9 +46,9 @@ function DnD(canvas, interactor) {
     this.canvas.addEventListener('mouseup', this.relachement,false);
 
 
-    //interactor.onInteractionStart(this);
+  
    // interactor.onInteractionUpdate(this);
-   // interactor.onInteractionEnd(this);
+
 
 };
 
