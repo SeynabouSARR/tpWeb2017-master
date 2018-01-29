@@ -25,6 +25,9 @@ function Pencil(ctx, drawing, canvas) {
 
 
 	this.onInteractionEnd= function (dnd) {
+	    if(this.currEditingMode==editingMode.line){
+	    var line=new Line()
+	    }
         console.log("End");
 	}.bind(this);
 
