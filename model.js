@@ -7,7 +7,7 @@ function Drawing(){
    this.addForm=function(form){this.listForm.push(form);}.bind(this);
 }
 
-function Rectangle(x, largeur, y, hauteur,epaisseur,couleur){
+function Rectangle(x, y, largeur, hauteur,epaisseur,couleur){
 
         Form.call(epaisseur,couleur);
         this.x=x;
@@ -19,6 +19,8 @@ function Rectangle(x, largeur, y, hauteur,epaisseur,couleur){
         this.getY=function(){return this.y }.bind(this);
         this.getLargeur=function(){return this.largeur}.bind(this);
         this.getHauteur=function () {return this.hauteur}.bind(this);
+
+
 }
 
 function Line(x1, x2, y1, y2, epaisseur, couleur){
