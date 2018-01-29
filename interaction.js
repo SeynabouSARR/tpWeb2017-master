@@ -12,7 +12,10 @@ function DnD(canvas, interactor) {
 	this.interactor = interactor;
 
 
-	
+    this.getInitX=function(){return this.xDebut}.bind(this);
+    this.getFinalX=function(){return this.xFin }.bind(this);
+    this.getInitY=function(){return this.yDebut}.bind(this);
+    this.getFinalY=function () {return this.yFin}.bind(this);
 
 
 	// Developper les 3 fonctions gérant les événements
