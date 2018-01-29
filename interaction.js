@@ -12,6 +12,9 @@ function DnD(canvas, interactor) {
 	this.interactor = interactor;
 
 
+	
+
+
 	// Developper les 3 fonctions gérant les événements
     this.pression=function(evt){
         xdebut = getMousePosition(canvas,evt).x;
