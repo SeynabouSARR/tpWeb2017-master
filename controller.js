@@ -26,8 +26,19 @@ function Pencil(ctx, drawing, canvas) {
 
 	this.onInteractionEnd= function (dnd) {
 	    if(this.currEditingMode==editingMode.line){
-	    var line=new Line()
+	   		 var line=new Line(dnd.getInitX,dnd.getFinalX,dnd.getInitY,dnd.getFinalY,this.currLineWidth,this.currColour);
+	   		 line.paint(ctx);
+	   		 console.log("passsss line");
 	    }
+	    else if (this.currEditingMode==editingMode.rect) {
+			var rectangle=new Rectangle(dnd.getInitX,dnd.getFinalX,dnd.getInitY,dnd.getFinalY,this.currLineWidth,this.currColour);
+			rectangle.paint(ctx);
+            console.log("passsss rectangle");
+		}
+
+
+
+
         console.log("End");
 	}.bind(this);
 
