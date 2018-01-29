@@ -15,8 +15,6 @@ function Pencil(ctx, drawing, canvas) {
     
     this.setCurrentShape=function (x) { this.currentShape = x; }.bind(this);
 
-
-
     // Liez ici les widgets à la classe pour modifier les attributs présents ci-dessus.
 
 	this.dnd = new DnD(canvas, this);

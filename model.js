@@ -20,7 +20,6 @@ function Rectangle(x, y, largeur, hauteur,epaisseur,couleur){
         this.getLargeur=function(){return this.largeur}.bind(this);
         this.getHauteur=function () {return this.hauteur}.bind(this);
 
-
 }
 
 function Line(x1, x2, y1, y2, epaisseur, couleur){
