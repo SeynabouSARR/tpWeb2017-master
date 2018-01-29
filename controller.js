@@ -40,7 +40,7 @@ function Pencil(ctx, drawing, canvas) {
 	this.onInteractionEnd= function (dnd) {
         console.log("End");
 	}.bind(this);
->>>>>>> 188dce59da9a473775dbefc166d2c87bae17ff09
+
 
 
     //interactor.onInteractionStart(this);
