@@ -7,18 +7,18 @@ function Drawing(){
    this.addForm=function(form){this.listForm.push(form);}.bind(this);
 }
 
-function Rectangle(haut_gaucheX, haut_gaucheY,largeur, hauteur,epaisseur,couleur){
+function Rectangle(x, largeur, y, hauteur,epaisseur,couleur){
 
-        Form.call(this,haut_gaucheX, haut_gaucheY,largeur,epaisseur,couleur);
-        this.haut_gaucheX=haut_gaucheX;
-        this.haut_gaucheY=haut_gaucheY;
+        Form.call(epaisseur,couleur);
+        this.x=x;
+        this.y=y;
         this.largeur=largeur;
         this.hauteur=hauteur;
 
-        this.getInitX=function(){return haut_gaucheX}.bind(this);
-        this.getFinalX=function(){return haut_gaucheY }.bind(this);
-        this.getInitY=function(){return largeur}.bind(this);
-        this.getFinalY=function () {return hauteur}.bind(this);
+        this.getX=function(){return this.x}.bind(this);
+        this.getY=function(){return this.y }.bind(this);
+        this.getLargeur=function(){return this.largeur}.bind(this);
+        this.getHauteur=function () {return this.hauteur}.bind(this);
 }
 
 function Line(x1, x2, y1, y2, epaisseur, couleur){

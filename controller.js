@@ -2,7 +2,7 @@
 var editingMode = { rect: 0, line: 1 };
 
 function Pencil(ctx, drawing, canvas) {
-	this.currEditingMode = editingMode.line;
+	this.currEditingMode = editingMode.rect;
 	this.currLineWidth = 5;
 	this.currColour = '#320f1f';
 	this.currentShape = 0;
@@ -30,7 +30,9 @@ function Pencil(ctx, drawing, canvas) {
 	   		 line.paint(ctx);
 	    }
 	    else if (this.currEditingMode==editingMode.rect) {
-			var rectangle=new Rectangle(dnd.getInitX(),dnd.getFinalX(),dnd.getInitY(),dnd.getFinalY(),this.currLineWidth,this.currColour);
+	        var largeur= Math.abs(dnd.getInitX()-dnd.getFinalX());
+	        var hauteur=Math.abs(dnd.getInitY()-dnd.getFinalY());
+			var rectangle=new Rectangle(dnd.getInitX(),largeur,dnd.getInitY(),hauteur,this.currLineWidth,this.currColour);
 			rectangle.paint(ctx);
 		}
 
