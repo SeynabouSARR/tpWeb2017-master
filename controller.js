@@ -14,15 +14,15 @@ function Pencil(ctx, drawing, canvas) {
 
     this.setCurrLineWidth=function(width){
     	this.currLineWidth = width ;
-        ctx.lineWidth=this.currLineWidth;
     }.bind(this);
 
     this.setCurrColour=function(color){
 		this.currColour = color;
-		ctx.strokeStyle=this.currColour;
     }.bind(this);
     
-    this.setCurrentShape=function (x) { this.currentShape = x; }.bind(this);
+    this.setCurrentShape=function (x) {
+    	this.currentShape = x;
+    }.bind(this);
 
     // Liez ici les widgets à la classe pour modifier les attributs présents ci-dessus.
 
