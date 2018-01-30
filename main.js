@@ -39,20 +39,25 @@ ctx.stroke();
 
 boutonRect.addEventListener('click',function () {
     pencil.setCurrEditingMode(editingMode.rect);
+    console.log(pencil);
 });
 
 boutonLine.addEventListener('click',function () {
     pencil.setCurrEditingMode(editingMode.line);
+    console.log(pencil);
 });
 
 
 spinnerWidth.addEventListener('change',function () {
-    //pencil.setCurrLineWidth(this.val())
-    //alert(this.value);
     pencil.setCurrLineWidth(this.value);
     console.log(pencil);
 });
 
+
+colour.addEventListener('change',function () {
+    pencil.setCurrColour(this.value);
+    console.log(pencil);
+});
 
 
 

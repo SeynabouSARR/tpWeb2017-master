@@ -9,7 +9,7 @@ function Drawing(){
 
 function Rectangle(x, y, largeur, hauteur,epaisseur,couleur){
 
-        Form.call(epaisseur,couleur);
+        Form.call(this,epaisseur,couleur);
         this.x=x;
         this.y=y;
         this.largeur=largeur;
