@@ -30,8 +30,6 @@ drawing.addForm(ligne);
 var pencil = new Pencil(ctx, drawing, canvas);
 //drawing.paint(ctx, canvas);
 
-ctx.rect(10,150,20,20);
-ctx.stroke();
 
 
 
