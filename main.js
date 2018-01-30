@@ -34,9 +34,6 @@ ctx.rect(10,150,20,20);
 ctx.stroke();
 
 
-
-
-
 boutonRect.addEventListener('click',function () {
     pencil.setCurrEditingMode(editingMode.rect);
 });
@@ -47,11 +44,13 @@ boutonLine.addEventListener('click',function () {
 
 
 spinnerWidth.addEventListener('change',function () {
-    //pencil.setCurrLineWidth(this.val())
-    //alert(this.value);
     pencil.setCurrLineWidth(this.value);
     console.log(pencil);
 });
+
+colour.addEventListener('change', function(){
+    ctx.strokeStyle="blue";
+ });
 
 
 
