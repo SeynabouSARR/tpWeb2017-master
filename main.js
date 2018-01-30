@@ -48,15 +48,12 @@ spinnerWidth.addEventListener('change',function () {
     console.log(pencil);
 });
 
-colour.addEventListener('change', function(){
-    ctx.strokeStyle="blue";
- });
-
-
 colour.addEventListener('change',function () {
     pencil.setCurrColour(this.value);
     console.log(pencil);
 });
+
+
 
 
 
