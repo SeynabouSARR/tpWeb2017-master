@@ -2,6 +2,9 @@
 // Implémenter ici les fonctions paint à ajouter dans chacune des classes du modèle.
 
 Rectangle.prototype.paint = function(ctx) {
+    ctx.beginPath();
+    ctx.lineWidth = this.getEpaisseur();
+    ctx.strokeStyle = this.getCouleur();
     ctx.rect(this.getX(), this.getY(),this.getLargeur(),this.getHauteur());
     ctx.stroke();
 };
@@ -9,6 +12,8 @@ Rectangle.prototype.paint = function(ctx) {
 Line.prototype.paint = function(ctx) {
 
     ctx.beginPath();
+    ctx.lineWidth = this.getEpaisseur();
+    ctx.strokeStyle = this.getCouleur();
     ctx.moveTo(this.getInitX(), this.getInitY());
     ctx.lineTo(this.getFinalX(), this.getFinalY());
     ctx.stroke();
@@ -30,5 +35,9 @@ Form.prototype.paint = function (ctx) {
 
     ctx.lineWidth=this.epaisseur;
     ctx.strokeStyle="red";
+
+    /*this.updateShapeList = function () {
+
+    }.bind(this);*/
 
 }

@@ -37,9 +37,12 @@ function DnD(canvas, interactor) {
         this.setFinalY(getMousePosition(canvas,evt).y);
         this.interactor.onInteractionEnd(this);
         this.interactor.onInteractionUpdate(this);
+
     }.bind(this);
 
-	// Associer les fonctions précédentes aux évènements du canvas.
+
+
+    // Associer les fonctions précédentes aux évènements du canvas.
 	this.canvas.addEventListener('mousedown',this.pression,false);
     this.canvas.addEventListener('mousemove',this.deplacement,false);
     this.canvas.addEventListener('mouseup', this.relachement,false);

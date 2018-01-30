@@ -30,16 +30,16 @@ drawing.addForm(ligne);
 var pencil = new Pencil(ctx, drawing, canvas);
 //drawing.paint(ctx, canvas);
 
-ctx.rect(10,150,20,20);
-ctx.stroke();
 
 
 boutonRect.addEventListener('click',function () {
     pencil.setCurrEditingMode(editingMode.rect);
+    console.log(pencil);
 });
 
 boutonLine.addEventListener('click',function () {
     pencil.setCurrEditingMode(editingMode.line);
+    console.log(pencil);
 });
 
 
@@ -52,6 +52,11 @@ colour.addEventListener('change', function(){
     ctx.strokeStyle="blue";
  });
 
+
+colour.addEventListener('change',function () {
+    pencil.setCurrColour(this.value);
+    console.log(pencil);
+});
 
 
 

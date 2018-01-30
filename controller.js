@@ -2,18 +2,27 @@
 var editingMode = { rect: 0, line: 1 };
 
 function Pencil(ctx, drawing, canvas) {
-	this.currEditingMode = editingMode.rect;
+	this.currEditingMode = editingMode.line;
 	this.currLineWidth = 5;
     this.currColour = '#320f1f';
     this.currentShape = 0;
 
 
-    this.setCurrEditingMode=function(x){ this.currEditingMode =x; }.bind(this);
-    this.setCurrLineWidth=function(x){ this.currLineWidth = x ;}.bind(this);
-    this.setCurrColour=function(x){
+    this.setCurrEditingMode=function(mode){
+    	this.currEditingMode =mode;
+    }.bind(this);
+
+    this.setCurrLineWidth=function(width){
+    	this.currLineWidth = width ;
+    }.bind(this);
+
+    this.setCurrColour=function(color){
+		this.currColour = color;
     }.bind(this);
     
-    this.setCurrentShape=function (x) { this.currentShape = x; }.bind(this);
+    this.setCurrentShape=function (x) {
+    	this.currentShape = x;
+    }.bind(this);
 
     // Liez ici les widgets à la classe pour modifier les attributs présents ci-dessus.
 
@@ -24,9 +33,15 @@ function Pencil(ctx, drawing, canvas) {
     this.onInteractionStart= function(dnd){
     	//console.log("Start");
 	}.bind(this);
+
+
     this.onInteractionUpdate=function (dnd) {
-        //console.log("Update");
+        console.log("Update");
+
+
 	}.bind(this);
+
+
 	this.onInteractionEnd= function (dnd) {
 	    if(this.currEditingMode==editingMode.line){
 	   		 var line=new Line(dnd.getInitX(),dnd.getFinalX(),dnd.getInitY(),dnd.getFinalY(),this.currLineWidth,this.currColour);
