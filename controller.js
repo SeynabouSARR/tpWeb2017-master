@@ -8,30 +8,28 @@ function Pencil(ctx, drawing, canvas) {
     this.currentShape = 0;
 
 
-    this.setCurrEditingMode=function(mode){
-    	this.currEditingMode =mode;
+    this.setCurrEditingMode=function(newMode){
+    	this.currEditingMode =newMode;
     }.bind(this);
 
-    this.setCurrLineWidth=function(width){
-    	this.currLineWidth = width ;
+    this.setCurrLineWidth=function(newWidth){
+    	this.currLineWidth = newWidth ;
     }.bind(this);
 
-    this.setCurrColour=function(color){
-		this.currColour = color;
+    this.setCurrColour=function(newColor){
+		this.currColour = newColor;
     }.bind(this);
     
-    this.setCurrentShape=function (x) {
-    	this.currentShape = x;
+    this.setCurrentShape=function (newShape) {
+    	this.currentShape = newShape;
     }.bind(this);
 
-    // Liez ici les widgets à la classe pour modifier les attributs présents ci-dessus.
-
+    
 	this.dnd = new DnD(canvas, this);
 
-	//Implémentez ici les 3 fonctions onInteractionStart, onInteractionUpdate et onInteractionEnd
-
-    this.onInteractionStart= function(dnd){
-    	//console.log("Start");
+	this.onInteractionStart= function(dnd,mousePosition){
+		dnd.setInitX(mousePosition.x);
+		dnd.setInitY(mousePosition.y);
 	}.bind(this);
 
 
@@ -42,20 +40,30 @@ function Pencil(ctx, drawing, canvas) {
 	}.bind(this);
 
 
-	this.onInteractionEnd= function (dnd) {
+	this.onInteractionEnd= function (dnd,mousePosition) {
+
+		dnd.setFinalX(mousePosition.x);
+        dnd.setFinalY(mousePosition.y);
+        var figure;
+
+		//si ligne a été selectionné, on dessine une ligne
 	    if(this.currEditingMode==editingMode.line){
-	   		 var line=new Line(dnd.getInitX(),dnd.getFinalX(),dnd.getInitY(),dnd.getFinalY(),this.currLineWidth,this.currColour);
-	   		 line.paint(ctx);
-	    }
+	   		 figure=new Line(dnd.getInitX(),dnd.getFinalX(),dnd.getInitY(),dnd.getFinalY(),this.currLineWidth,this.currColour);
+	   		 
+		}
+		//si on a decidé de dessiner un rectangle
 	    else if (this.currEditingMode==editingMode.rect) {
 	        var largeur= dnd.getFinalX()-dnd.getInitX();
 	        var hauteur=dnd.getFinalY()-dnd.getInitY();
-			var rectangle=new Rectangle(dnd.getInitX(),dnd.getInitY(),largeur,hauteur,this.currLineWidth,this.currColour);
-			console.log(rectangle);
-			rectangle.paint(ctx);
+			figure=new Rectangle(dnd.getInitX(),dnd.getInitY(),largeur,hauteur,this.currLineWidth,this.currColour);
+			
 		}
 
-        //console.log("End");
+
+		figure.updateShapeList();
+		figure.paint(ctx);
+
+        
 	}.bind(this);
 
 

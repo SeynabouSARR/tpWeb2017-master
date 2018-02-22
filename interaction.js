@@ -21,28 +21,27 @@ function DnD(canvas, interactor) {
     this.setInitY=function(y){this.yDebut = y; }.bind(this);
     this.setFinalY=function (y) { this.yFin = y; }.bind(this);
 
-    // Developper les 3 fonctions gérant les événements
+    //Quand j'appuie sur le bouton gauche de la souris
     this.pression=function(evt){
-        this.setInitX(getMousePosition(canvas,evt).x);
-        this.setInitY(getMousePosition(canvas,evt).y);
-        this.interactor.onInteractionStart(this);
+        var mousePosition = getMousePosition(canvas,evt);
+        this.interactor.onInteractionStart(this,mousePosition);
     }.bind(this);
 
+    //Deplacement de la souris
     this.deplacement=function(evt){
         //console.log("je déplace la souris");
     }.bind(this);
 
+    //Quand je relache le bouton gauche de la souris
     this.relachement=function(evt){
-        this.setFinalX(getMousePosition(canvas,evt).x);
-        this.setFinalY(getMousePosition(canvas,evt).y);
-        this.interactor.onInteractionEnd(this);
-        this.interactor.onInteractionUpdate(this);
+        var mousePosition = getMousePosition(canvas,evt);
+        this.interactor.onInteractionEnd(this,mousePosition);
 
     }.bind(this);
 
 
 
-    // Associer les fonctions précédentes aux évènements du canvas.
+    // Ajout des évènements au canvas.
 	this.canvas.addEventListener('mousedown',this.pression,false);
     this.canvas.addEventListener('mousemove',this.deplacement,false);
     this.canvas.addEventListener('mouseup', this.relachement,false);

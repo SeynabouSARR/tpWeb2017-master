@@ -3,8 +3,18 @@
 // N'oubliez pas l'héritage !
 function Drawing(){
    this.listForm = [];
-   this.getForms=function () {return this.listForm}.bind(this);
-   this.addForm=function(form){this.listForm.push(form);}.bind(this);
+
+   this.getForms=function () {
+       return this.listForm
+   }.bind(this);
+
+
+   this.addForm=function(form){
+       this.listForm.push(form);
+   }.bind(this);
+
+
+
 }
 
 function Rectangle(x, y, largeur, hauteur,epaisseur,couleur){
@@ -21,6 +31,8 @@ function Rectangle(x, y, largeur, hauteur,epaisseur,couleur){
         this.getHauteur=function () {return this.hauteur}.bind(this);
         this.getEpaisseur=function(){return this.epaisseur}.bind(this);
         this.getCouleur=function () {return this.couleur}.bind(this);
+
+        
 
 }
 
@@ -39,6 +51,8 @@ function Line(x1, x2, y1, y2, epaisseur, couleur){
         this.getEpaisseur=function(){return this.epaisseur}.bind(this);
         this.getCouleur=function () {return this.couleur}.bind(this);
 
+        
+
 
     this.toString=function () {
             console.log(this);
@@ -47,11 +61,8 @@ function Line(x1, x2, y1, y2, epaisseur, couleur){
 }
 
 function Form(epaisseur,couleur){
-    console.log(epaisseur+"/"+couleur);
           this.epaisseur=epaisseur;
           this.couleur=couleur;
-
-
 
 }
 

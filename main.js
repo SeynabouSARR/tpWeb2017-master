@@ -7,6 +7,9 @@ var boutonLine = document.getElementById('butLine');
 var spinnerWidth = document.getElementById('spinnerWidth');
 var colour = document.getElementById('colour');
 
+var shapeList = document.getElementById('shapeList');
+
+
 canvas.width=800
 canvas.height=600
 
