@@ -4,8 +4,8 @@
 function Drawing(){
    this.listForm = [];
 
-   this.getForms=function () {
-       return this.listForm
+   this.getForms = function () {
+       return this.listForm;
    }.bind(this);
 
 
@@ -51,14 +51,9 @@ function Line(x1, x2, y1, y2, epaisseur, couleur){
         this.getEpaisseur=function(){return this.epaisseur}.bind(this);
         this.getCouleur=function () {return this.couleur}.bind(this);
 
-        
 
-
-    this.toString=function () {
-            console.log(this);
-            //console.log("("+this.getInitX+','+this.getInitY+")/("+this.getFinalX+","+this.getFinalY()+")");
-        }
 }
+
 
 function Form(epaisseur,couleur){
           this.epaisseur=epaisseur;

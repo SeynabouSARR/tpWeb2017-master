@@ -41,12 +41,31 @@ function DnD(canvas, interactor) {
 
 
 
+
+
+
+
     // Ajout des évènements au canvas.
 	this.canvas.addEventListener('mousedown',this.pression,false);
     this.canvas.addEventListener('mousemove',this.deplacement,false);
     this.canvas.addEventListener('mouseup', this.relachement,false);
 
+
+
+
+
+
 };
+
+
+
+
+
+
+
+
+
+
 
 // Place le point de l'événement evt relativement à la position du canvas.
 function getMousePosition(canvas, evt) {

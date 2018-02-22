@@ -2,7 +2,7 @@
 var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext('2d');
 
-var boutonRect = document.getElementById('butRect');
+var boutonRectangle = document.getElementById('butRect');
 var boutonLine = document.getElementById('butLine');
 var spinnerWidth = document.getElementById('spinnerWidth');
 var colour = document.getElementById('colour');
@@ -28,33 +28,38 @@ var ligne = new Rectangle(60, 60, 1, 75, 3, '#FF0000');
 
 // Code final à utiliser pour manipuler Pencil.
 var drawing = new Drawing();
-drawing.addForm(rec);
-drawing.addForm(ligne);
 var pencil = new Pencil(ctx, drawing, canvas);
 //drawing.paint(ctx, canvas);
 
 
 
-boutonRect.addEventListener('click',function () {
+
+//Quand on change le type de figure en rectangle
+function changeFigureTypeToRectangle() {
     pencil.setCurrEditingMode(editingMode.rect);
-    console.log(pencil);
+
+}
+
+
+//Quand on change le type de figure en Line
+boutonRectangle.addEventListener('click',function () {
+    pencil.setCurrEditingMode(editingMode.rect);
 });
 
 boutonLine.addEventListener('click',function () {
     pencil.setCurrEditingMode(editingMode.line);
-    console.log(pencil);
 });
 
 
 spinnerWidth.addEventListener('change',function () {
     pencil.setCurrLineWidth(this.value);
-    console.log(pencil);
 });
 
 colour.addEventListener('change',function () {
     pencil.setCurrColour(this.value);
-    console.log(pencil);
 });
+
+
 
 
 

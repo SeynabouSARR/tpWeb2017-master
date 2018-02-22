@@ -50,11 +50,6 @@ Line.prototype.updateShapeList = function () {
 
 
 
-
-
-
-
-
 Drawing.prototype.paint = function(ctx,canvas) {
     //console.log(this.getForms());
     ctx.fillStyle = '#F0F0F0'; // set canvas' background color
