@@ -35,9 +35,6 @@ var pencil = new Pencil(ctx, drawing, canvas);
 
 
 
-
-
-
 boutonRect.addEventListener('click',function () {
     pencil.setCurrEditingMode(editingMode.rect);
     console.log(pencil);
@@ -54,11 +51,12 @@ spinnerWidth.addEventListener('change',function () {
     console.log(pencil);
 });
 
-
 colour.addEventListener('change',function () {
     pencil.setCurrColour(this.value);
     console.log(pencil);
 });
+
+
 
 
 
