@@ -10,18 +10,24 @@
  <body>
 	<div class="container"> 
 		<div class="row">
-		<form>
-			<div class="mx-button">
-				<input type="radio" name="mx" id="butRect" checked>
-				<label for="butRect" unselectable>Rectangle</label>
-				</div>
-			<div class="mx-button">
-				<input type="radio" name="mx" id="butLine" checked>
-				<label for="butLine" unselectable>Line</label>
-				</div>
-		</form>
-		<input id="spinnerWidth" type="number" min="1" max="50" step="1" value="5" size="4">
-		<input id="colour" type="color">
+			<form>
+				<div class="mx-button">
+					<input type="radio" name="mx" id="butRect" checked>
+					<label for="butRect" unselectable>Rectangle</label>
+					</div>
+				<div class="mx-button">
+					<input type="radio" name="mx" id="butLine" checked>
+					<label for="butLine" unselectable>Line</label>
+					</div>
+			</form>
+			<input id="spinnerWidth" type="number" min="1" max="50" step="1" value="5" size="4">
+			<input id="colour" type="color">
+
+			
+
+
+
+
 
 
 		</div>
@@ -33,7 +39,21 @@
 				<canvas class="myCanvas" id="myCanvas"></canvas>
 			</div>
 
-			<div class="col-md-4">
+			<div class="col-md-4 col-md-push-1">
+				<div class="outils ">
+					<button type="button" class="btn btn-info" title="Precedent">
+						<span class="glyphicon glyphicon glyphicon-arrow-left"></span>
+					</button>
+
+					<button type="button" class="btn btn-info" title="Retablir">
+						<span class="glyphicon glyphicon glyphicon-arrow-right"></span>
+					</button>
+
+					<button type="button" id="supprimer_tout" class="btn btn-info" title="Supprimer toutes les figures">
+						<span class="glyphicon glyphicon glyphicon-trash"></span>
+					</button>
+				</div>
+
 				<ul class="list-unstyled" id="shapeList">
 
 				</ul>

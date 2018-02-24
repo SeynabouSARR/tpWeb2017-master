@@ -30,7 +30,6 @@ function Pencil(ctx, drawing, canvas) {
 	this.onInteractionStart= function(dnd,mousePosition){
 		dnd.setInitX(mousePosition.x);
 		dnd.setInitY(mousePosition.y);
-		console.log(drawing.getForms());
 	}.bind(this);
 
 	
@@ -64,7 +63,7 @@ function Pencil(ctx, drawing, canvas) {
 
 		figure.updateShapeList();
 		figure.paint(ctx);
-		//drawing.addForm(figure);
+		drawing.addForm(figure);
 
 
         

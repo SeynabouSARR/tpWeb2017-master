@@ -8,6 +8,7 @@ var spinnerWidth = document.getElementById('spinnerWidth');
 var colour = document.getElementById('colour');
 
 var shapeList = document.getElementById('shapeList');
+var deleteAll = document.getElementById('supprimer_tout');
 
 
 canvas.width=800
@@ -30,6 +31,8 @@ var ligne = new Rectangle(60, 60, 1, 75, 3, '#FF0000');
 var drawing = new Drawing();
 var pencil = new Pencil(ctx, drawing, canvas);
 //drawing.paint(ctx, canvas);
+
+Form.init();
 
 
 
@@ -58,6 +61,15 @@ spinnerWidth.addEventListener('change',function () {
 colour.addEventListener('change',function () {
     pencil.setCurrColour(this.value);
 });
+
+
+deleteAll.addEventListener('click',function(){
+   drawing.deleteAll(ctx,canvas);
+});
+
+
+
+
 
 
 
