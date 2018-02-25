@@ -4,8 +4,10 @@ var ctx = canvas.getContext('2d');
 
 var boutonRectangle = document.getElementById('butRect');
 var boutonLine = document.getElementById('butLine');
+var boutonEllipse = document.getElementById('butEllipse');
 var spinnerWidth = document.getElementById('spinnerWidth');
 var colour = document.getElementById('colour');
+
 
 var shapeList = document.getElementById('shapeList');
 var deleteAll = document.getElementById('supprimer_tout');
@@ -51,6 +53,10 @@ boutonRectangle.addEventListener('click',function () {
 
 boutonLine.addEventListener('click',function () {
     pencil.setCurrEditingMode(editingMode.line);
+});
+
+boutonEllipse.addEventListener('click',function () {
+    pencil.setCurrEditingMode(editingMode.ellipse);
 });
 
 

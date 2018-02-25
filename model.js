@@ -64,6 +64,9 @@ function Rectangle(x, y, largeur, hauteur,epaisseur,couleur){
 function Line(x1, x2, y1, y2, epaisseur, couleur){
 
         Form.call(this,epaisseur, couleur);
+        //point initial (x1,y1)
+        //point final (x2,y2)
+
         this.x1=x1;
         this.x2=x2;
         this.y1=y1;
@@ -80,6 +83,27 @@ function Line(x1, x2, y1, y2, epaisseur, couleur){
 }
 
 
+/*******************ELLIPSE**************************/
+function Ellipse(x1, y1, x2, y2, epaisseur, couleur){
+    console.log('brut ('+x1+','+x2+','+y1+','+y2);
+    Form.call(this,epaisseur, couleur);
+    this.centerX= (x1 + x2)/2;
+    this.centerY=(y1+ y2)/2;
+    this.rayonX = Math.abs((x2 - x1)/2);
+    this.rayonY = Math.abs((y2 - y1))/2;
+    this.id = ++Form.nombre;
+
+    this.getCenterX=function(){return this.centerX}.bind(this);
+    this.getCenterY=function(){return this.centerY}.bind(this);
+    this.getRayonX=function(){return this.rayonX}.bind(this);
+    this.getRayonY=function(){return this.rayonY}.bind(this);
+
+    this.getEpaisseur=function(){return this.epaisseur}.bind(this);
+    this.getCouleur=function () {return this.couleur}.bind(this);
+
+}
+
+/*************FORM***************/
 function Form(epaisseur,couleur){
 
           this.epaisseur=epaisseur;

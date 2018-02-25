@@ -1,5 +1,5 @@
 
-var editingMode = { rect: 0, line: 1 };
+var editingMode = { rect: 0, line: 1, ellipse: 2};
 
 function Pencil(ctx, drawing, canvas) {
 	this.currEditingMode = editingMode.line;
@@ -49,9 +49,10 @@ function Pencil(ctx, drawing, canvas) {
 
 		//si ligne a été selectionné, on dessine une ligne
 	    if(this.currEditingMode==editingMode.line){
-	   		 figure=new Line(dnd.getInitX(),dnd.getFinalX(),dnd.getInitY(),dnd.getFinalY(),this.currLineWidth,this.currColour);
-	   		 
-		}
+            figure=new Line(dnd.getInitX(),dnd.getFinalX(),dnd.getInitY(),dnd.getFinalY(),this.currLineWidth,this.currColour);
+            //figure=new Ellipse(dnd.getInitX(),dnd.getFinalX(),dnd.getInitY(),dnd.getFinalY(),this.currLineWidth,this.currColour);
+
+        }
 		//si on a decidé de dessiner un rectangle
 	    else if (this.currEditingMode==editingMode.rect) {
 	        var largeur= dnd.getFinalX()-dnd.getInitX();
@@ -59,9 +60,14 @@ function Pencil(ctx, drawing, canvas) {
 			figure=new Rectangle(dnd.getInitX(),dnd.getInitY(),largeur,hauteur,this.currLineWidth,this.currColour);
 			
 		}
+		//si on a choisi figure ellipse
+        else if (this.currEditingMode==editingMode.ellipse) {
+            figure=new Ellipse(dnd.getInitX(),dnd.getInitY(),dnd.getFinalX(),dnd.getFinalY(),this.currLineWidth,this.currColour);
+        }
 
 
-		figure.updateShapeList();
+
+        figure.updateShapeList();
 		figure.paint(ctx);
 		drawing.addForm(figure);
 
