@@ -7,6 +7,7 @@ var boutonLine = document.getElementById('butLine');
 var boutonEllipse = document.getElementById('butEllipse');
 var boutonLosange = document.getElementById('butLosange');
 var boutonHexagone = document.getElementById('butHexagone');
+var boutonOctagone = document.getElementById('butOctagone');
 var spinnerWidth = document.getElementById('spinnerWidth');
 var colour = document.getElementById('colour');
 
@@ -68,6 +69,10 @@ boutonLosange.addEventListener('click',function () {
 
 boutonHexagone.addEventListener('click',function () {
     pencil.setCurrEditingMode(editingMode.hexagone);
+});
+
+boutonOctagone.addEventListener('click',function () {
+    pencil.setCurrEditingMode(editingMode.octagone);
 });
 
 

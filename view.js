@@ -124,6 +124,35 @@ Hexagone.prototype.updateShapeList = function () {
 
 
 
+/*************OCTAGONE************************/
+Octagone.prototype.paint = function (ctx) {
+    ctx.beginPath();
+    ctx.lineWidth = this.getEpaisseur();
+    ctx.strokeStyle = this.getCouleur();
+    this.octagone(ctx);
+    ctx.stroke();
+
+};
+
+
+Octagone.prototype.updateShapeList = function () {
+    shapeList.innerHTML+='<li id="figure_'+this.getId()+'" onclick="drawing.delete('+this.getId()+')"><button type="button"  class="btn btn-default">'+
+        '<span class="glyphicon glyphicon-remove-sign"></span>'+
+        '</button>'+
+        "Octagone ( id: "+this.getId()+" --- ("+
+        this.getPont1().x+","+this.getPont1().y+") , ("+
+        this.getPont2().x+","+this.getPont2().y+") , ("+
+        this.getPont3().x+","+this.getPont3().y+") , ("+
+        this.getPont4().x+","+this.getPont4().y+") , ("+
+        this.getPont5().x+","+this.getPont5().y+") , ("+
+        this.getPont6().x+","+this.getPont6().y+") , ("+
+        this.getPont7().x+","+this.getPont7().y+") , ("+
+        this.getPont8().x+","+this.getPont8().y+") ) </li>";
+};
+
+
+
+
 
 
 
@@ -178,6 +207,19 @@ Drawing.prototype.paint = function(ctx,canvas) {
                 figure.getPont5().x+","+figure.getPont5().y+") , ("+
                 figure.getPont6().x+","+figure.getPont6().y+") ) </li>";
         }
+        else if (figure instanceof Octagone)
+        {
+            string_data = "Hexagone ( id: "+figure.getId()+" --- ("+
+                figure.getPont1().x+","+figure.getPont1().y+") , ("+
+                figure.getPont2().x+","+figure.getPont2().y+") , ("+
+                figure.getPont3().x+","+figure.getPont3().y+") , ("+
+                figure.getPont4().x+","+figure.getPont4().y+") , ("+
+                figure.getPont5().x+","+figure.getPont5().y+") , ("+
+                figure.getPont6().x+","+figure.getPont6().y+") , ("+
+                figure.getPont7().x+","+figure.getPont7().y+") , ("+
+                figure.getPont8().x+","+figure.getPont8().y+") ) </li>";
+        }
+
 
 
         shapeList.innerHTML+='<li id="figure_'+figure.getId()+'" onclick="drawing.delete('+figure.getId()+')"><button type="button"  class="btn btn-default">'+

@@ -1,5 +1,5 @@
 
-var editingMode = { rect: 0, line: 1, ellipse: 2, losange: 3, hexagone: 4};
+var editingMode = { rect: 0, line: 1, ellipse: 2, losange: 3, hexagone: 4, octagone: 5};
 
 function Pencil(ctx, drawing, canvas) {
 	this.currEditingMode = editingMode.line;
@@ -73,6 +73,11 @@ function Pencil(ctx, drawing, canvas) {
         else if (this.currEditingMode==editingMode.hexagone)
         {
             figure=new Hexagone(dnd.getInitX(),dnd.getInitY(),dnd.getFinalX(),dnd.getFinalY(),this.currLineWidth,this.currColour);
+        }
+        //initialisation d'un octagone
+        else if (this.currEditingMode==editingMode.octagone)
+        {
+            figure=new Octagone(dnd.getInitX(),dnd.getInitY(),dnd.getFinalX(),dnd.getFinalY(),this.currLineWidth,this.currColour);
         }
 
 
