@@ -179,23 +179,28 @@ function Losange(x1, y1, x2, y2, epaisseur, couleur){
 function Hexagone(x1, y1, x2, y2, epaisseur, couleur){
     Form.call(this,epaisseur, couleur);
 
-    this.point1_x = (x1 + x2 ) / 2;
+    console.log("Brut : "+x1+","+y1+";"+x2+","+y2);
+
+    var distance_x = x2 - x1;
+    var distance_y = y2 - y1;
+
+    this.point1_x = x1 + distance_x / 3;
     this.point1_y = y1;
 
-    this.point2_x = x2;
-    this.point2_y = ( y1 + y2 ) / 2;
+    this.point2_x = x1 + 2*(distance_x / 3);
+    this.point2_y = y1;
 
-    this.point3_x = this.point1_x;
-    this.point3_y = y2;
+    this.point3_x = x2;
+    this.point3_y = (y1 + y2) / 2;
 
-    this.point4_x = x1;
-    this.point4_y = this.point2_y;
+    this.point4_x = this.point2_x;
+    this.point4_y = y2;
 
-    this.point5_x = x1;
-    this.point5_y = this.point2_y;
+    this.point5_x = this.point1_x;
+    this.point5_y = y2;
 
     this.point6_x = x1;
-    this.point6_y = this.point2_y;
+    this.point6_y = this.point3_y;
 
 
     this.id = ++Form.nombre;

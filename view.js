@@ -3,6 +3,7 @@ const ANGLE_DEBUT = 0; //en radian
 const ANGLE_FIN = 2 * Math.PI; //en radian
 
 
+/*************RECTANGLE************************/
 Rectangle.prototype.paint = function(ctx) {
     ctx.beginPath();
     ctx.lineWidth = this.getEpaisseur();
@@ -29,6 +30,7 @@ Rectangle.prototype.updateShapeList = function () {
 
 
 
+/*************LINE************************/
 Line.prototype.paint = function(ctx) {
 
     ctx.beginPath();
@@ -52,6 +54,7 @@ Line.prototype.updateShapeList = function () {
 
 
 
+/*************ELLIPSE************************/
 Ellipse.prototype.paint = function (ctx) {
     ctx.beginPath();
     ctx.lineWidth = this.getEpaisseur();
@@ -70,7 +73,7 @@ Ellipse.prototype.updateShapeList = function () {
 };
 
 
-
+/*************LOSANGE************************/
 Losange.prototype.paint = function (ctx) {
     ctx.beginPath();
     ctx.lineWidth = this.getEpaisseur();
@@ -94,27 +97,33 @@ Losange.prototype.updateShapeList = function () {
 
 
 
-
-Losange.prototype.paint = function (ctx) {
+/*************HEXAGONE************************/
+Hexagone.prototype.paint = function (ctx) {
     ctx.beginPath();
     ctx.lineWidth = this.getEpaisseur();
     ctx.strokeStyle = this.getCouleur();
-    this.losange(ctx);
+    this.hexagone(ctx);
     ctx.stroke();
 
 };
 
 
-Losange.prototype.updateShapeList = function () {
+Hexagone.prototype.updateShapeList = function () {
     shapeList.innerHTML+='<li id="figure_'+this.getId()+'" onclick="drawing.delete('+this.getId()+')"><button type="button"  class="btn btn-default">'+
         '<span class="glyphicon glyphicon-remove-sign"></span>'+
         '</button>'+
-        "Losange ( id: "+this.getId()+" --- ("+
+        "Hexagone ( id: "+this.getId()+" --- ("+
         this.getPont1().x+","+this.getPont1().y+") , ("+
         this.getPont2().x+","+this.getPont2().y+") , ("+
         this.getPont3().x+","+this.getPont3().y+") , ("+
-        this.getPont4().x+","+this.getPont4().y+") ) </li>";
+        this.getPont4().x+","+this.getPont4().y+") , ("+
+        this.getPont5().x+","+this.getPont5().y+") , ("+
+        this.getPont6().x+","+this.getPont6().y+") ) </li>";
 };
+
+
+
+
 
 
 
@@ -158,6 +167,16 @@ Drawing.prototype.paint = function(ctx,canvas) {
                 figure.getPont2().x+","+figure.getPont2().y+") , ("+
                 figure.getPont3().x+","+figure.getPont3().y+") , ("+
                 figure.getPont4().x+","+figure.getPont4().y+") ) </li>";
+        }
+        else if (figure instanceof Hexagone)
+        {
+            string_data = "Hexagone ( id: "+figure.getId()+" --- ("+
+                figure.getPont1().x+","+figure.getPont1().y+") , ("+
+                figure.getPont2().x+","+figure.getPont2().y+") , ("+
+                figure.getPont3().x+","+figure.getPont3().y+") , ("+
+                figure.getPont4().x+","+figure.getPont4().y+") , ("+
+                figure.getPont5().x+","+figure.getPont5().y+") , ("+
+                figure.getPont6().x+","+figure.getPont6().y+") ) </li>";
         }
 
 
