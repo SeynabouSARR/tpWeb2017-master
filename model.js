@@ -32,7 +32,6 @@ function Drawing(){
                 var position_a_supprimer = drawing_copy.getForms().indexOf(value);
                 drawing_copy.getForms().splice(position_a_supprimer,1);
                 drawing_copy.paint(ctx,canvas);
-                //this.innerHTML=""; //appeler plutot le bouton au lieu drawing ou --- refaire les boutons dans paint de drawing
             }
        });
    }
@@ -87,7 +86,7 @@ function Line(x1, x2, y1, y2, epaisseur, couleur){
 //l'Ellipse est inscrit dans un rectangle dont le point superieur gauche a pour coordonnées (x1,y1) et
 //le point inferieur droit de coordonnées (x2,y2)
 function Ellipse(x1, y1, x2, y2, epaisseur, couleur){
-    console.log('brut ('+x1+','+x2+','+y1+','+y2);
+
     Form.call(this,epaisseur, couleur);
     this.centerX= (x1 + x2)/2;
     this.centerY=(y1+ y2)/2;
@@ -111,6 +110,7 @@ function Ellipse(x1, y1, x2, y2, epaisseur, couleur){
 //le point inferieur droit de coordonnées (x2,y2)
 function Losange(x1, y1, x2, y2, epaisseur, couleur){
     Form.call(this,epaisseur, couleur);
+
 
     this.point1_x = (x1 + x2 ) / 2;
     this.point1_y = y1;
@@ -179,7 +179,6 @@ function Losange(x1, y1, x2, y2, epaisseur, couleur){
 function Hexagone(x1, y1, x2, y2, epaisseur, couleur){
     Form.call(this,epaisseur, couleur);
 
-    console.log("Brut : "+x1+","+y1+";"+x2+","+y2);
 
     var distance_x = x2 - x1;
     var distance_y = y2 - y1;
@@ -398,7 +397,6 @@ function Form(epaisseur,couleur){
 
           Form.augmenter = function () {
               Form.nombre++;
-              console.log(Form.nombre);
           }
 
 

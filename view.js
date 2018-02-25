@@ -61,7 +61,7 @@ Ellipse.prototype.paint = function (ctx) {
     ctx.strokeStyle = this.getCouleur();
     ctx.ellipse(this.getCenterX(), this.getCenterY(), this.getRayonX(), this.getRayonY(), ROTATION, ANGLE_DEBUT, ANGLE_FIN);
     ctx.stroke();
-    console.log('paint ellipse ('+this.getCenterX()+','+this.getCenterY()+','+this.getRayonX()+','+this.getRayonY());
+
 };
 
 
@@ -76,10 +76,12 @@ Ellipse.prototype.updateShapeList = function () {
 /*************LOSANGE************************/
 Losange.prototype.paint = function (ctx) {
     ctx.beginPath();
+
     ctx.lineWidth = this.getEpaisseur();
     ctx.strokeStyle = this.getCouleur();
     this.losange(ctx);
     ctx.stroke();
+
 
 };
 
@@ -93,6 +95,7 @@ Losange.prototype.updateShapeList = function () {
         this.getPont2().x+","+this.getPont2().y+") , ("+
         this.getPont3().x+","+this.getPont3().y+") , ("+
         this.getPont4().x+","+this.getPont4().y+") ) </li>";
+
 };
 
 

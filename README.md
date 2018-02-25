@@ -4,5 +4,5 @@ Melaine BOUE
 
 
 #dessin triangle (dessiner 3 traits)
-#dessin ellipse
-#dessin
+#dessin etoile
+#dessin arc
