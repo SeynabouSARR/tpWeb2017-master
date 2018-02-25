@@ -71,6 +71,57 @@ Ellipse.prototype.updateShapeList = function () {
 
 
 
+Losange.prototype.paint = function (ctx) {
+    ctx.beginPath();
+    ctx.lineWidth = this.getEpaisseur();
+    ctx.strokeStyle = this.getCouleur();
+    this.losange(ctx);
+    ctx.stroke();
+
+};
+
+
+Losange.prototype.updateShapeList = function () {
+    shapeList.innerHTML+='<li id="figure_'+this.getId()+'" onclick="drawing.delete('+this.getId()+')"><button type="button"  class="btn btn-default">'+
+        '<span class="glyphicon glyphicon-remove-sign"></span>'+
+        '</button>'+
+        "Losange ( id: "+this.getId()+" --- ("+
+        this.getPont1().x+","+this.getPont1().y+") , ("+
+        this.getPont2().x+","+this.getPont2().y+") , ("+
+        this.getPont3().x+","+this.getPont3().y+") , ("+
+        this.getPont4().x+","+this.getPont4().y+") ) </li>";
+};
+
+
+
+
+Losange.prototype.paint = function (ctx) {
+    ctx.beginPath();
+    ctx.lineWidth = this.getEpaisseur();
+    ctx.strokeStyle = this.getCouleur();
+    this.losange(ctx);
+    ctx.stroke();
+
+};
+
+
+Losange.prototype.updateShapeList = function () {
+    shapeList.innerHTML+='<li id="figure_'+this.getId()+'" onclick="drawing.delete('+this.getId()+')"><button type="button"  class="btn btn-default">'+
+        '<span class="glyphicon glyphicon-remove-sign"></span>'+
+        '</button>'+
+        "Losange ( id: "+this.getId()+" --- ("+
+        this.getPont1().x+","+this.getPont1().y+") , ("+
+        this.getPont2().x+","+this.getPont2().y+") , ("+
+        this.getPont3().x+","+this.getPont3().y+") , ("+
+        this.getPont4().x+","+this.getPont4().y+") ) </li>";
+};
+
+
+
+
+
+
+
 
 
 Drawing.prototype.paint = function(ctx,canvas) {
@@ -98,6 +149,15 @@ Drawing.prototype.paint = function(ctx,canvas) {
         {
             //si c'est un Ellipse
             string_data = "Ellipse ( id: "+figure.getId()+" --- "+figure.getRayonX()+','+figure.getRayonY()+','+figure.getRayonX()+','+figure.getRayonY() +') </li>';
+        }
+        else if (figure instanceof Losange)
+        {
+            //la figure est un Losange
+            string_data = "Ellipse ( id: "+figure.getId()+" --- ("+
+                figure.getPont1().x+","+figure.getPont1().y+") , ("+
+                figure.getPont2().x+","+figure.getPont2().y+") , ("+
+                figure.getPont3().x+","+figure.getPont3().y+") , ("+
+                figure.getPont4().x+","+figure.getPont4().y+") ) </li>";
         }
 
 

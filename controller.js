@@ -1,5 +1,5 @@
 
-var editingMode = { rect: 0, line: 1, ellipse: 2};
+var editingMode = { rect: 0, line: 1, ellipse: 2, losange: 3};
 
 function Pencil(ctx, drawing, canvas) {
 	this.currEditingMode = editingMode.line;
@@ -64,6 +64,11 @@ function Pencil(ctx, drawing, canvas) {
         else if (this.currEditingMode==editingMode.ellipse) {
             figure=new Ellipse(dnd.getInitX(),dnd.getInitY(),dnd.getFinalX(),dnd.getFinalY(),this.currLineWidth,this.currColour);
         }
+        //initialisation d'un losange
+        else if (this.currEditingMode==editingMode.losange)
+        {
+            figure=new Losange(dnd.getInitX(),dnd.getInitY(),dnd.getFinalX(),dnd.getFinalY(),this.currLineWidth,this.currColour);
+		}
 
 
 

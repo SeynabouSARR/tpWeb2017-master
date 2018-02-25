@@ -5,6 +5,7 @@ var ctx = canvas.getContext('2d');
 var boutonRectangle = document.getElementById('butRect');
 var boutonLine = document.getElementById('butLine');
 var boutonEllipse = document.getElementById('butEllipse');
+var boutonLosange = document.getElementById('butLosange');
 var spinnerWidth = document.getElementById('spinnerWidth');
 var colour = document.getElementById('colour');
 
@@ -57,6 +58,10 @@ boutonLine.addEventListener('click',function () {
 
 boutonEllipse.addEventListener('click',function () {
     pencil.setCurrEditingMode(editingMode.ellipse);
+});
+
+boutonLosange.addEventListener('click',function () {
+    pencil.setCurrEditingMode(editingMode.losange);
 });
 
 
