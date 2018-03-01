@@ -50,6 +50,7 @@ function Rectangle(x, y, largeur, hauteur,epaisseur,couleur){
         this.y=y;
         this.largeur=largeur;
         this.hauteur=hauteur;
+        
 
         this.id = ++Form.nombre;
 
@@ -427,7 +428,7 @@ function correctFormat(number)
 }
 
 
-a
+
 
 
 

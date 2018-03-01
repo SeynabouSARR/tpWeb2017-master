@@ -34,6 +34,15 @@ form {
     margin: 80px;
 }
 
+.miniature
+{
+    margin-left: 80px;
+    margin-top: 5px;    
+    height: 45px;
+    border: #e4e4e4 2px solid;
+    text-align:center;
+}
+
 .mx-button label {
     background-color: #f5f5f5;
     background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);

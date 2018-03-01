@@ -1,5 +1,16 @@
 
-var editingMode = { rect: 0, line: 1, ellipse: 2, losange: 3, hexagone: 4, octagone: 5};
+var editingMode = { rect: 0, line: 1, ellipse: 2, losange: 3, hexagone: 4, octagone: 5, star: 6, arc: 7};
+var miniature_images = {
+    rect:"rectangle.jpg",
+    line:"line.jpg",
+    ellipse:"ellipse.jpg",
+    losange:"losange.jpg",
+    hexagone:"hexagone.jpg",
+    octagone:"octagone.jpg",
+    star:"etoile.jpg",
+    arc:"arc.jpg"
+    
+}
 
 function Pencil(ctx, drawing, canvas) {
 	this.currEditingMode = editingMode.line;
@@ -9,7 +20,36 @@ function Pencil(ctx, drawing, canvas) {
 
 
     this.setCurrEditingMode=function(newMode){
-    	this.currEditingMode =newMode;
+        this.currEditingMode =newMode;
+
+        var fileName;
+        
+        switch(this.currEditingMode)
+        {
+            case editingMode.rect: fileName=miniature_images.rect;
+            break;
+            case editingMode.line: fileName=miniature_images.line;
+            break;
+            case editingMode.ellipse: fileName=miniature_images.ellipse;
+            break;
+            case editingMode.losange: fileName=miniature_images.losange;
+            break;
+            case editingMode.hexagone: fileName=miniature_images.hexagone;
+            break;
+            case editingMode.octagone: fileName=miniature_images.octagone;
+            break;
+            case editingMode.star: fileName=miniature_images.star;
+            break;
+            case editingMode.arc: fileName=miniature_images.arc;
+            break;
+            default:
+            break;
+            
+
+        }
+        miniature.src="images/"+fileName;
+ 
+
     }.bind(this);
 
     this.setCurrLineWidth=function(newWidth){
@@ -89,7 +129,57 @@ function Pencil(ctx, drawing, canvas) {
 
 
         
-	}.bind(this);
+    }.bind(this);
+    
+
+    //initialiser les paramètres de pencil
+    //Pour faire correspondre les elements du IHM et du Model
+    this.initialisation = function()
+    {
+
+        
+        pencil.setCurrLineWidth(spinnerWidth.value);
+        pencil.setCurrColour(colour.value);
+
+        var currentMode;
+        
+        if(boutonLine.checked)
+        {
+            currentMode = editingMode.line;
+        }
+        else if(boutonRectangle.checked)
+        {
+            currentMode = editingMode.rect;
+        } 
+        else if(boutonEllipse.checked)
+        {
+            currentMode = editingMode.ellipse;
+        } 
+        else if(boutonLosange.checked)
+        {
+            currentMode = editingMode.losange;
+        } 
+        else if(boutonHexagone.checked)
+        {
+            currentMode = editingMode.hexagone;
+        } 
+        else if(boutonOctagone.checked)
+        {
+            currentMode = editingMode.octagone;
+        } 
+        else if(boutonEtoile.checked)
+        {
+            currentMode = editingMode.star;
+        } 
+        else if(boutonArc.checked)
+        {
+            currentMode = editingMode.arc;
+        } 
+        
+        pencil.setCurrEditingMode(currentMode);
+       
+
+    }.bind(this);
 
 
 

@@ -8,8 +8,11 @@ var boutonEllipse = document.getElementById('butEllipse');
 var boutonLosange = document.getElementById('butLosange');
 var boutonHexagone = document.getElementById('butHexagone');
 var boutonOctagone = document.getElementById('butOctagone');
+var boutonEtoile = document.getElementById('butEtoile');
+var boutonArc = document.getElementById('butArc');
 var spinnerWidth = document.getElementById('spinnerWidth');
 var colour = document.getElementById('colour');
+var miniature = document.getElementById('miniature');
 
 
 var shapeList = document.getElementById('shapeList');
@@ -38,7 +41,7 @@ var pencil = new Pencil(ctx, drawing, canvas);
 //drawing.paint(ctx, canvas);
 
 Form.init();
-
+pencil.initialisation()
 
 
 //Quand on change le type de figure en rectangle
@@ -51,6 +54,7 @@ function changeFigureTypeToRectangle() {
 //Quand on change le type de figure en Line
 boutonRectangle.addEventListener('click',function () {
     pencil.setCurrEditingMode(editingMode.rect);
+    
 });
 
 boutonLine.addEventListener('click',function () {
@@ -90,9 +94,7 @@ deleteAll.addEventListener('click',function(){
 });
 
 
-canvas.addEventListener('drag',function () {
-    console.log('a ');
-})
+
 
 
 
