@@ -41,7 +41,6 @@ Form.init();
 
 
 
-
 //Quand on change le type de figure en rectangle
 function changeFigureTypeToRectangle() {
     pencil.setCurrEditingMode(editingMode.rect);
@@ -89,6 +88,11 @@ colour.addEventListener('change',function () {
 deleteAll.addEventListener('click',function(){
    drawing.deleteAll(ctx,canvas);
 });
+
+
+canvas.addEventListener('drag',function () {
+    console.log('a ');
+})
 
 
 

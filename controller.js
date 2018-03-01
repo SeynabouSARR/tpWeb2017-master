@@ -96,3 +96,36 @@ function Pencil(ctx, drawing, canvas) {
 };
 
 
+
+
+
+function Saver (drawing)
+{
+	this.listPrevious = [];
+	this.listNext =[];
+	this.drawing = drawing;
+
+	this.getDrawing = function(){ return this.drawing;}.bind(this);
+
+    this.getPreviousSave = function () {
+    	if(this.listPrevious.length!=0)
+		{
+            var value = this.listPrevious.pop();
+            this.drawing.setForms(value);
+            this.drawing.paint();
+            return this.saveList;
+		}
+
+    }.bind(this);
+
+
+    this.saveInPrevious = function (value) {
+		listPrevious.push(value);
+    }.bind(this)
+
+
+
+
+};
+
+

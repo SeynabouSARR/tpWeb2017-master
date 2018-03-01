@@ -17,8 +17,8 @@ Rectangle.prototype.paint = function(ctx) {
 
 
 Rectangle.prototype.updateShapeList = function () {
-    shapeList.innerHTML+='<li><button type="button" class="btn btn-default" onclick="">'+
-        '<span class="glyphicon glyphicon-remove-sign"></span>'+
+    shapeList.innerHTML+='<li id="figure_'+this.getId()+'" onclick="drawing.delete('+this.getId()+')"><button type="button"  class="btn btn-default">'+
+    '<span class="glyphicon glyphicon-remove-sign"></span>'+
     '</button>'+
         "Rectangle ( id: "+this.getId()+" --- "+this.getX()+','+this.getY()+','+this.getLargeur()+','+this.getHauteur() +') </li>';
     //if(this instanceof Rectangle)
@@ -166,6 +166,9 @@ Octagone.prototype.updateShapeList = function () {
 
 
 Drawing.prototype.paint = function(ctx,canvas) {
+
+    this.ctx = ctx;
+    this.canvas = canvas ;
     //redessine la zone de dessin
     ctx.fillStyle = '#F0F0F0'; // set canvas' background color
     ctx.fillRect(0, 0, canvas.width, canvas.height);

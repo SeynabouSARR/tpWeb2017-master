@@ -5,12 +5,16 @@ function Drawing(){
    this.id=1;
    this.listForm = [];
 
-   this.getForms = function () {
-       return this.listForm;
-   }.bind(this);
+    this.getForms = function () {
+        return this.listForm;
+    }.bind(this);
+
+    this.setForms = function (value) {
+        this.listForm = value;
+    }.bind(this);
 
 
-   this.addForm=function(form){
+    this.addForm=function(form){
 
        this.listForm.push(form);
 
@@ -206,45 +210,45 @@ function Hexagone(x1, y1, x2, y2, epaisseur, couleur){
 
     this.getPont1=function(){
         return {
-            x : this.point1_x,
-            y : this.point1_y
+            x : correctFormat(this.point1_x),
+            y : correctFormat(this.point1_y)
         };
     }.bind(this);
 
     this.getPont2=function(){
         return {
-            x : this.point2_x,
-            y : this.point2_y
+            x : correctFormat(this.point2_x),
+            y : correctFormat(this.point2_y)
         };
     }.bind(this);
 
     this.getPont3=function(){
         return {
-            x : this.point3_x,
-            y : this.point3_y
+            x : correctFormat(this.point3_x),
+            y : correctFormat(this.point3_y)
         };
     }.bind(this);
 
     this.getPont4=function(){
         return {
-            x : this.point4_x,
-            y : this.point4_y
+            x : correctFormat(this.point4_x),
+            y : correctFormat(this.point4_y)
         };
     }.bind(this);
 
 
     this.getPont5=function(){
         return {
-            x : this.point5_x,
-            y : this.point5_y
+            x : correctFormat(this.point5_x),
+            y : correctFormat(this.point5_y)
         };
     }.bind(this);
 
 
     this.getPont6=function(){
         return {
-            x : this.point6_x,
-            y : this.point6_y
+            x : correctFormat(this.point6_x),
+            y : correctFormat(this.point6_y)
         };
     }.bind(this);
 
@@ -307,59 +311,59 @@ function Octagone(x1, y1, x2, y2, epaisseur, couleur){
 
     this.getPont1=function(){
         return {
-            x : this.point1_x,
-            y : this.point1_y
+            x : correctFormat(this.point1_x),
+            y : correctFormat(this.point1_y)
         };
     }.bind(this);
 
     this.getPont2=function(){
         return {
-            x : this.point2_x,
-            y : this.point2_y
+            x : correctFormat(this.point2_x),
+            y : correctFormat(this.point2_y)
         };
     }.bind(this);
 
     this.getPont3=function(){
         return {
-            x : this.point3_x,
-            y : this.point3_y
+            x : correctFormat(this.point3_x),
+            y : correctFormat(this.point3_y)
         };
     }.bind(this);
 
     this.getPont4=function(){
         return {
-            x : this.point4_x,
-            y : this.point4_y
+            x : correctFormat(this.point4_x),
+            y : correctFormat(this.point4_y)
         };
     }.bind(this);
 
 
     this.getPont5=function(){
         return {
-            x : this.point5_x,
-            y : this.point5_y
+            x : correctFormat(this.point5_x),
+            y : correctFormat(this.point5_y)
         };
     }.bind(this);
 
 
     this.getPont6=function(){
         return {
-            x : this.point6_x,
-            y : this.point6_y
+            x : correctFormat(this.point6_x),
+            y : correctFormat(this.point6_y)
         };
     }.bind(this);
 
     this.getPont7=function(){
         return {
-            x : this.point7_x,
-            y : this.point7_y
+            x : correctFormat(this.point7_x),
+            y : correctFormat(this.point7_y)
         };
     }.bind(this);
 
     this.getPont8=function(){
         return {
-            x : this.point8_x,
-            y : this.point8_y
+            x : correctFormat(this.point8_x),
+            y : correctFormat(this.point8_y)
         };
     }.bind(this);
 
@@ -409,6 +413,21 @@ function Form(epaisseur,couleur){
 
 }
 
+
+
+/*************FUNCTION *****************/
+function correctFormat(number)
+{
+    if(!Number.isSafeInteger(number))
+    {
+        number = number.toFixed(2);
+    }
+
+    return number;
+}
+
+
+a
 
 
 
