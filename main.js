@@ -38,7 +38,7 @@ var ligne = new Rectangle(60, 60, 1, 75, 3, '#FF0000');
 // Code final à utiliser pour manipuler Pencil.
 var drawing = new Drawing();
 var pencil = new Pencil(ctx, drawing, canvas);
-//drawing.paint(ctx, canvas);
+drawing.paint(ctx, canvas);
 
 Form.init();
 pencil.initialisation()

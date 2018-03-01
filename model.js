@@ -15,11 +15,9 @@ function Drawing(){
     }.bind(this);
 
 
-    this.addForm=function(form){
-
-       this.listForm.push(form);
-
-   }.bind(this);
+    this.repaint = function(){
+        this.paint(ctx,canvas);
+    }.bind(this);
 
 
    this.deleteAll = function (ctx,canvas) {
@@ -40,6 +38,24 @@ function Drawing(){
             }
        });
    }
+
+
+   this.save = function(value){
+        this.listForm.push(value);
+        this.carteker.save(this.listForm);
+   }.bind(this);
+
+
+   this.getNext = function(){
+        this.listForm = carteker.getNext();
+        this.repaint();
+   }.bind(this);
+
+   this.getPrevious = function(){
+       this.listForm = carteker.getPrevious();
+       this.repaint();
+   }.bind(this);
+
 }
 
 

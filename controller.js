@@ -124,7 +124,7 @@ function Pencil(ctx, drawing, canvas) {
 
         figure.updateShapeList();
 		figure.paint(ctx);
-		drawing.addForm(figure);
+        drawing.save(figure);
 
 
         
@@ -201,16 +201,17 @@ function Saver ()
 
 
     this.save = function (newValue) {
-        listPrevious.push(current);
-        current = newValue;
+        this.listPrevious.push(this.current);
+        this.current = newValue;
+
+        console.log("Prev "+this.listPrevious.length);
+        console.log("Current "+this.current.length);
+        console.log("Next "+this.listNext.length);
+        
     }.bind(this);
 
 
-    this.retrievePrevious = function(){
-
-    }
-
-
+   
     this.getPrevious = function () {
     	if(this.listPrevious.length!=0)
 		{
@@ -231,11 +232,6 @@ function Saver ()
 		}
 
     }.bind(this);
-
-
-
-
-
 
 
 };
