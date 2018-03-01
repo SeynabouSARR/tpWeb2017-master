@@ -4,6 +4,7 @@
 function Drawing(){
    this.id=1;
    this.listForm = [];
+   this.carteker = new Saver();
 
     this.getForms = function () {
         return this.listForm;

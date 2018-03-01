@@ -23,7 +23,6 @@ function Pencil(ctx, drawing, canvas) {
         this.currEditingMode =newMode;
 
         var fileName;
-        
         switch(this.currEditingMode)
         {
             case editingMode.rect: fileName=miniature_images.rect;
@@ -188,30 +187,53 @@ function Pencil(ctx, drawing, canvas) {
 
 
 
-
-function Saver (drawing)
+//le Carteker, c'est qui enregistre la liste des modification du canvas
+//grace à lui, on pourra faire undo/redo
+function Saver ()
 {
 	this.listPrevious = [];
-	this.listNext =[];
-	this.drawing = drawing;
+    this.listNext =[];
+    this.current=[];
 
 	this.getDrawing = function(){ return this.drawing;}.bind(this);
 
-    this.getPreviousSave = function () {
+    
+
+
+    this.save = function (newValue) {
+        listPrevious.push(current);
+        current = newValue;
+    }.bind(this);
+
+
+    this.retrievePrevious = function(){
+
+    }
+
+
+    this.getPrevious = function () {
     	if(this.listPrevious.length!=0)
 		{
-            var value = this.listPrevious.pop();
-            this.drawing.setForms(value);
-            this.drawing.paint();
-            return this.saveList;
+            this.listNext.push(this.current);
+            this.current = this.listPrevious.pop();
+            return current;
 		}
 
     }.bind(this);
 
 
-    this.saveInPrevious = function (value) {
-		listPrevious.push(value);
-    }.bind(this)
+    this.getNext = function () {
+    	if(this.listNext.length!=0)
+		{
+            this.listPrevious.push(this.current);
+            this.current = this.listNext.pop();
+            return current;
+		}
+
+    }.bind(this);
+
+
+
 
 
 
