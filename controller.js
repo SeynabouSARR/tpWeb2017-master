@@ -18,6 +18,9 @@ function Pencil(ctx, drawing, canvas) {
     this.currColour = '#320f1f';
     this.currentShape = 0;
 
+    this.dnd = new DnD(canvas, this);
+
+
 
     this.setCurrEditingMode=function(newMode){
         this.currEditingMode =newMode;
@@ -64,8 +67,7 @@ function Pencil(ctx, drawing, canvas) {
     }.bind(this);
 
     
-	this.dnd = new DnD(canvas, this);
-
+	
 	this.onInteractionStart= function(dnd,mousePosition){
 		dnd.setInitX(mousePosition.x);
 		dnd.setInitY(mousePosition.y);
@@ -121,10 +123,15 @@ function Pencil(ctx, drawing, canvas) {
 
 
 
+        //console.log('###DDDDDDDDDDDDDDDEEEEEEEEEEEEEEEEEBBBBBBBBBBBBUUUUUUUUUUUUUUUUTTTTTTTTTTT');
 
         figure.updateShapeList();
-		figure.paint(ctx);
+        figure.paint(ctx);
+        //drawing.echo2();
         drawing.save(figure);
+        //drawing.carteker.echo();
+        drawing.echo2();
+        //console.log('###FFFFFFFFFFFFFFFFFIIIIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN');
 
 
         
@@ -201,23 +208,29 @@ function Saver ()
 
 
     this.save = function (newValue) {
-        this.listPrevious.push(this.current);
-        this.current = newValue;
+               
+        var toSave = cloneArray(this.current);
+        this.listPrevious.push(toSave);
+        this.current = cloneArray(newValue);
 
-        console.log("Prev "+this.listPrevious.length);
-        console.log("Current "+this.current.length);
-        console.log("Next "+this.listNext.length);
+       
+        
         
     }.bind(this);
 
+
+    this.echo = function(){
+        console.log("Prev : "+this.listPrevious.length+" Current : "+this.current.length+ " Next : "+this.listNext.length);
+       
+    }.bind(this);
 
    
     this.getPrevious = function () {
     	if(this.listPrevious.length!=0)
 		{
-            this.listNext.push(this.current);
+            this.listNext.push(cloneArray(this.current));
             this.current = this.listPrevious.pop();
-            return current;
+            return this.current;
 		}
 
     }.bind(this);
@@ -226,12 +239,13 @@ function Saver ()
     this.getNext = function () {
     	if(this.listNext.length!=0)
 		{
-            this.listPrevious.push(this.current);
+            this.listPrevious.push(cloneArray(this.current));
             this.current = this.listNext.pop();
-            return current;
+            return this.current;
 		}
 
     }.bind(this);
+    
 
 
 };

@@ -17,6 +17,15 @@ var miniature = document.getElementById('miniature');
 
 var shapeList = document.getElementById('shapeList');
 var deleteAll = document.getElementById('supprimer_tout');
+var boutonUndo = document.getElementById('boutonUndo');
+var boutonRedo = document.getElementById('boutonRedo');
+
+
+//boutonUndo.disabled = true;
+//boutonRedo.disabled = true;
+//deleteAll.disabled = true;
+
+
 
 
 canvas.width=800
@@ -88,10 +97,23 @@ colour.addEventListener('change',function () {
     pencil.setCurrColour(this.value);
 });
 
+boutonUndo.addEventListener('click',function(){
+    console.log('azerty');
+    drawing.getPrevious();
+    
+    drawing.carteker.echo();
+ });
+
+
+ boutonRedo.addEventListener('click',function(){
+    drawing.getNext();
+ });
 
 deleteAll.addEventListener('click',function(){
    drawing.deleteAll(ctx,canvas);
 });
+
+drawing.echo2();
 
 
 

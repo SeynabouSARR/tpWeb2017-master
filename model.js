@@ -6,6 +6,8 @@ function Drawing(){
    this.listForm = [];
    this.carteker = new Saver();
 
+   this.carteker.save
+
     this.getForms = function () {
         return this.listForm;
     }.bind(this);
@@ -23,38 +25,70 @@ function Drawing(){
    this.deleteAll = function (ctx,canvas) {
        this.listForm = [];
        this.paint(ctx,canvas);
+       this.carteker.save(this.listForm);
    }
 
 
    this.delete = function (id) {
        var drawing_copy = this;
-
+       var carteker = this.carteker;
+       var listForm = this.getForms();
+       
        this.getForms().forEach(function (value) {
+        
             if(value.getId() == id )
             {
                 var position_a_supprimer = drawing_copy.getForms().indexOf(value);
                 drawing_copy.getForms().splice(position_a_supprimer,1);
                 drawing_copy.paint(ctx,canvas);
+                carteker.save(listForm);
             }
        });
    }
 
 
    this.save = function(value){
-        this.listForm.push(value);
-        this.carteker.save(this.listForm);
+       this.listForm.push(value);
+       this.carteker.save(this.listForm);
    }.bind(this);
 
 
    this.getNext = function(){
-        this.listForm = carteker.getNext();
+        this.listForm = this.carteker.getNext();
         this.repaint();
    }.bind(this);
 
    this.getPrevious = function(){
-       this.listForm = carteker.getPrevious();
+       this.listForm = this.carteker.getPrevious();
        this.repaint();
    }.bind(this);
+
+
+   this.echo = function()
+   {
+       console.log("---------listForm----------");
+       this.getForms().forEach(function(value){
+           value.echo();
+       });
+   }
+
+   this.echo2 = function()
+   {
+
+        
+        //console.log("€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€e");
+
+       //console.log('getForms().lenght : '+this.getForms().length+"--------------------------------"+'carteker.current.lenght : '+this.carteker.current.length);
+       var longueurs="";
+       this.carteker.listPrevious.forEach(function(valueTab){
+           longueurs +=" "+ valueTab.length;
+    
+       });
+
+       console.log(longueurs);
+       //console.log("€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€e");
+       
+   }
 
 }
 
@@ -428,21 +462,18 @@ function Form(epaisseur,couleur){
           }
 
 
+          this.echo = function()
+          {
+              console.log(" "+this.getId());
+          }
+
+
 
 }
 
 
 
-/*************FUNCTION *****************/
-function correctFormat(number)
-{
-    if(!Number.isSafeInteger(number))
-    {
-        number = number.toFixed(2);
-    }
 
-    return number;
-}
 
 
 
