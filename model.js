@@ -59,6 +59,7 @@ function Drawing(){
    }.bind(this);
 
    this.getPrevious = function(){
+    
        this.listForm = this.carteker.getPrevious();
        this.repaint();
    }.bind(this);

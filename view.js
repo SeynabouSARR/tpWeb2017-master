@@ -173,9 +173,9 @@ Drawing.prototype.paint = function(ctx,canvas) {
     ctx.fillStyle = '#F0F0F0'; // set canvas' background color
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     shapeList.innerHTML="";
-
+    
     //on parcourt toutes les figures pour les redessiner sur la zone de dessin
-    this.getForms().forEach(function(figure) {
+    this.getForms().forEach(function(figure) {console.log('azerty');
         figure.paint(ctx);
         var string_data = "";
 
@@ -232,6 +232,7 @@ Drawing.prototype.paint = function(ctx,canvas) {
             '<span class="glyphicon glyphicon-remove-sign"></span>'+
             '</button>'+ string_data;
     });
+    
 
 };
 

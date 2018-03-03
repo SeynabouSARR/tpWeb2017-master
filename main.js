@@ -21,9 +21,9 @@ var boutonUndo = document.getElementById('boutonUndo');
 var boutonRedo = document.getElementById('boutonRedo');
 
 
-//boutonUndo.disabled = true;
-//boutonRedo.disabled = true;
-//deleteAll.disabled = true;
+boutonUndo.disabled = true;
+boutonRedo.disabled = true;
+deleteAll.disabled = true;
 
 
 
@@ -98,7 +98,6 @@ colour.addEventListener('change',function () {
 });
 
 boutonUndo.addEventListener('click',function(){
-    console.log('azerty');
     drawing.getPrevious();
     
     drawing.carteker.echo();
