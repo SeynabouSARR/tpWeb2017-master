@@ -208,26 +208,11 @@ function Saver ()
 
 
     this.save = function (newValue) {
-        console.log('Passe par ici');
+        //console.log('Passe par ici');
         var toSave = cloneArray(this.current);
         this.listPrevious.push(toSave);
         this.current = cloneArray(newValue);
-
-        if(this.current.length == 0 ){
-            deleteAll.disabled = true;
-        }
-        else{
-            deleteAll.disabled = false;
-        }
-
-        if(this.listPrevious.length == 0 ){
-            boutonUndo.disabled = true;
-        }
-        else{
-            boutonUndo.disabled = false;
-        }
-        
-        
+        this.listNext = [];
     }.bind(this);
 
 
@@ -257,9 +242,26 @@ function Saver ()
             this.listPrevious.push(cloneArray(this.current));
             this.current = this.listNext.pop();
             return this.current;
-		}
+        }
+        return [];
 
     }.bind(this);
+
+
+    this.hasNext = function(){
+        if(this.listNext.length == 0 ){
+            return false;
+        }
+        return true;
+    }.bind(this);
+
+    this.hasPrevious = function(){
+        if(this.listPrevious.length == 0 ){
+            return false;
+        }
+        return true;
+    }.bind(this);
+
     
 
 

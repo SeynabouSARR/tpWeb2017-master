@@ -6,7 +6,7 @@ function Drawing(){
    this.listForm = [];
    this.carteker = new Saver();
 
-   this.carteker.save
+   //this.carteker.save
 
     this.getForms = function () {
         return this.listForm;
@@ -26,6 +26,7 @@ function Drawing(){
        this.listForm = [];
        this.paint(ctx,canvas);
        this.carteker.save(this.listForm);
+       this.updateGraphicComponent();
    }
 
 
@@ -44,25 +45,62 @@ function Drawing(){
                 carteker.save(listForm);
             }
        });
+       this.updateGraphicComponent();
    }
 
 
    this.save = function(value){
        this.listForm.push(value);
        this.carteker.save(this.listForm);
+       this.updateGraphicComponent();
    }.bind(this);
 
 
    this.getNext = function(){
         this.listForm = this.carteker.getNext();
         this.repaint();
+        this.updateGraphicComponent();
    }.bind(this);
 
    this.getPrevious = function(){
     
        this.listForm = this.carteker.getPrevious();
        this.repaint();
+       this.updateGraphicComponent();
    }.bind(this);
+
+
+   this.updateGraphicComponent = function()
+   {
+       console.log('mis a jour');
+       //Update Previous button
+        if(this.carteker.hasPrevious()){
+            boutonUndo.disabled = false;
+        }
+        else{
+            boutonUndo.disabled = true;
+        }
+
+        //Update Next button
+        if(this.carteker.hasNext()){
+            boutonRedo.disabled = false;
+        }
+        else{
+            boutonRedo.disabled = true;
+        }
+
+        //Update Next button
+        if(this.getForms().length == 0 ){
+            deleteAll.disabled = true;
+        }
+        else{
+            deleteAll.disabled = false;
+        }
+
+
+
+
+   }
 
 
    this.echo = function()
