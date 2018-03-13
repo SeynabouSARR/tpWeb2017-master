@@ -479,6 +479,61 @@ function Octagone(x1, y1, x2, y2, epaisseur, couleur){
 }
 
 
+
+
+
+
+
+
+
+/*******************ETOILE**************************/
+function Etoile(x1, x2, y1, y2, epaisseur, couleur){
+
+    Form.call(this,epaisseur, couleur);
+
+    this.x1=x1;
+    this.x2=x2;
+    this.y1=y1;
+    this.y2=y2;
+    //this.rayon = Math.abs((x2 - x1));
+    this.id = ++Form.nombre;
+
+    this.getInitX=function(){return this.x1}.bind(this);
+    this.getFinalX=function(){return this.x2}.bind(this);
+    this.getInitY=function(){return this.y1}.bind(this);
+    this.getFinalY=function(){return this.y2}.bind(this);
+    this.getEpaisseur=function(){return this.epaisseur}.bind(this);
+    this.getCouleur=function () {return this.couleur}.bind(this);
+
+}
+
+
+
+
+/*******************ARC**************************/
+function Arc(x1, x2, y1, y2, epaisseur, couleur){
+
+    Form.call(this,epaisseur, couleur);
+    //point initial (x1,y1)
+    //point final (x2,y2)
+
+    this.x1=x1;
+    this.x2=x2;
+    this.y1=y1;
+    this.y2=y2;
+    this.rayon = Math.abs((x2 - x1));
+    this.id = ++Form.nombre;
+
+    this.getInitX=function(){return this.x1}.bind(this);
+    this.getFinalX=function(){return this.x2}.bind(this);
+    this.getInitY=function(){return this.y1}.bind(this);
+    this.getFinalY=function(){return this.y2}.bind(this);
+    this.getEpaisseur=function(){return this.epaisseur}.bind(this);
+    this.getCouleur=function () {return this.couleur}.bind(this);
+
+}
+
+
 /*************FORM***************/
 function Form(epaisseur,couleur){
 
