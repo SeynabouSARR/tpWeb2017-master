@@ -491,19 +491,40 @@ function Etoile(x1, x2, y1, y2, epaisseur, couleur){
 
     Form.call(this,epaisseur, couleur);
 
-    this.x1=x1;
-    this.x2=x2;
-    this.y1=y1;
-    this.y2=y2;
+    this.centerX=x1;
+    this.centerY=x2;
+    this.petitRayon=y1;
+    this.grandRayon=y2;
     //this.rayon = Math.abs((x2 - x1));
     this.id = ++Form.nombre;
 
-    this.getInitX=function(){return this.x1}.bind(this);
-    this.getFinalX=function(){return this.x2}.bind(this);
-    this.getInitY=function(){return this.y1}.bind(this);
-    this.getFinalY=function(){return this.y2}.bind(this);
+    this.getCenterX=function(){return this.centerX}.bind(this);
+    this.getCenterY=function(){return this.centerY}.bind(this);
+    this.getGrandRayon=function(){return this.grandRayon}.bind(this);
+    this.getPetitRayon=function(){return this.petitRayon}.bind(this);
     this.getEpaisseur=function(){return this.epaisseur}.bind(this);
     this.getCouleur=function () {return this.couleur}.bind(this);
+    
+    
+    this.draw = function (ctx,nombre_sommet) {
+        var etapes = Math.PI / nombre_sommet;
+        var rotation = Math.PI / 2 * 3;
+
+        ctx.moveTo(this.getCenterX(),this.getCenterY()-this.getGrandRayon())
+        for( i =0; i<nombre_sommet;i++){
+            var x = this.getCenterX()+Math.cos(rotation) * this.getGrandRayon();
+            var y = this.getCenterY()+Math.sin(rotation) * this.getGrandRayon();
+            ctx.lineTo(x,y);
+            rotation+=etapes;
+
+            var x = this.getCenterX()+Math.cos(rotation) * this.getPetitRayon();
+            var y = this.getCenterY()+Math.sin(rotation) * this.getPetitRayon();
+            ctx.lineTo(x,y);
+            rotation+=etapes;
+        }
+
+        ctx.lineTo(this.getCenterX(),this.getCenterY() - this.getGrandRayon());
+    }
 
 }
 
