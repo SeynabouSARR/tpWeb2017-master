@@ -120,6 +120,11 @@ function Pencil(ctx, drawing, canvas) {
         {
             figure=new Octagone(dnd.getInitX(),dnd.getInitY(),dnd.getFinalX(),dnd.getFinalY(),this.currLineWidth,this.currColour);
         }
+        //initialisation d'une étoile
+        else if (this.currEditingMode==editingMode.star)
+        {
+            figure=new Etoile(dnd.getInitX(),dnd.getInitY(),dnd.getFinalX(),dnd.getFinalY(),this.currLineWidth,this.currColour);
+        }
 
 
 

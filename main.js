@@ -87,6 +87,18 @@ boutonOctagone.addEventListener('click',function () {
     pencil.setCurrEditingMode(editingMode.octagone);
 });
 
+boutonArc.addEventListener('click',function () {
+    pencil.setCurrEditingMode(editingMode.star);
+    console.log('ok');
+});
+
+boutonEtoile.addEventListener('click',function () {
+    pencil.setCurrEditingMode(editingMode.star);
+    console.log('ok');
+});
+
+
+
 
 
 spinnerWidth.addEventListener('change',function () {

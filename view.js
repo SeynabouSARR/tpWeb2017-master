@@ -1,6 +1,7 @@
 const ROTATION = 0; //en radian
 const ANGLE_DEBUT = 0; //en radian
 const ANGLE_FIN = 2 * Math.PI; //en radian
+const NOMBRE_SOMMET_ETOILE = 5;
 
 
 /*************RECTANGLE************************/
@@ -155,6 +156,27 @@ Octagone.prototype.updateShapeList = function () {
 
 
 
+/*************ETOILE************************/
+Etoile.prototype.paint = function(ctx) {
+
+    ctx.beginPath();
+    ctx.lineWidth = this.getEpaisseur();
+    ctx.strokeStyle = this.getCouleur();
+    this.drawStar(ctx,NOMBRE_SOMMET_ETOILE);
+    ctx.stroke();
+
+};
+
+
+
+
+Etoile.prototype.updateShapeList = function () {
+    shapeList.innerHTML+='<li id="figure_'+this.getId()+'" onclick="drawing.delete('+this.getId()+')"><button type="button"  class="btn btn-default">'+
+        '<span class="glyphicon glyphicon-remove-sign"></span>'+
+        '</button>'+
+        "Line ( id: "+this.getId()+" --- "+this.getCenterX()+","+this.getCenterY()+" ) </li>";
+
+};
 
 
 

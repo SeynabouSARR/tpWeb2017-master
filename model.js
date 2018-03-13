@@ -487,16 +487,17 @@ function Octagone(x1, y1, x2, y2, epaisseur, couleur){
 
 
 /*******************ETOILE**************************/
-function Etoile(x1, x2, y1, y2, epaisseur, couleur){
+function Etoile(x1, y1, x2, y2, epaisseur, couleur){
 
     Form.call(this,epaisseur, couleur);
 
-    this.centerX=x1;
-    this.centerY=x2;
-    this.petitRayon=y1;
-    this.grandRayon=y2;
+    this.centerX=(x1+x2)/2;
+    this.centerY=(y1+y2)/2;
+    this.petitRayon=Math.abs(this.centerY - y1)/3;
+    this.grandRayon=Math.abs(this.centerY - y1);
     //this.rayon = Math.abs((x2 - x1));
     this.id = ++Form.nombre;
+    console.log(x1+" "+y1+" "+x2+ " "+y2+"/ center : "+this.centerX+" "+this.centerY);
 
     this.getCenterX=function(){return this.centerX}.bind(this);
     this.getCenterY=function(){return this.centerY}.bind(this);
@@ -506,7 +507,7 @@ function Etoile(x1, x2, y1, y2, epaisseur, couleur){
     this.getCouleur=function () {return this.couleur}.bind(this);
     
     
-    this.draw = function (ctx,nombre_sommet) {
+    this.drawStar = function (ctx,nombre_sommet) {
         var etapes = Math.PI / nombre_sommet;
         var rotation = Math.PI / 2 * 3;
 
