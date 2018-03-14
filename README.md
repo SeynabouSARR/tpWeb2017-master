@@ -19,6 +19,7 @@
     Ouvrir le projet sur un editeur.
     Lancer votre application .
 
-Auteurs
-SARR Seynabou</br>
+<h2>Auteurs<h2>
+
+SARR Seynabou </br>
 BOUE Melaine
