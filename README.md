@@ -17,7 +17,7 @@
     Cloner le projet avec le lien de github.
     Explorer le dossier du projet.
     Ouvrir le projet sur un editeur.
-    Lancer votre application .
+    Lancer le fichier canvas.html avec votre navigateur préferé
 
 <h2>Auteurs<h2>
 
